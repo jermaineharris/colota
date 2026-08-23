@@ -17,13 +17,13 @@ Your server endpoint must accept HTTP or HTTPS requests (POST or GET depending o
 
 Self-signed and private-CA certificates are supported via three trust paths (system CAs, user-installed device CAs, or an in-app imported CA). Servers that require client-certificate authentication (mTLS) are also supported. See the [mTLS guide](./mtls) for setup.
 
-On **Android 17+**, connecting to another device on the local network (everything above except `localhost`) requires the **ACCESS_LOCAL_NETWORK** permission. Colota requests this when you use **Test Connection**. See [Permissions](/docs/development/permissions#local-network-access) for details.
+On **Android 17+**, connecting to another device on the local network (everything above except `localhost`) requires the **ACCESS_LOCAL_NETWORK** permission. Hutts Tracking requests this when you use **Test Connection**. See [Permissions](/docs/development/permissions#local-network-access) for details.
 
 Use the **Test Connection** button in Settings → Connection to verify your server is reachable.
 
 ### Multiple Backends
 
-Colota sends to a single endpoint. To forward locations to multiple services simultaneously (e.g. Dawarich + Home Assistant), use [colota-forwarder](https://github.com/dietrichmax/colota-forwarder) - point Colota at the forwarder and configure each target in the forwarder's environment variables.
+Colota sends to a single endpoint. To forward locations to multiple services simultaneously (e.g. Dawarich + Home Assistant), use [colota-forwarder](https://github.com/dietrichmax/colota-forwarder) - point Hutts Tracking at the forwarder and configure each target in the forwarder's environment variables.
 
 ### URL Variables
 
@@ -49,7 +49,7 @@ This is useful for backends that organize data by date (e.g. S3 with hive partit
 
 ## Offline Mode
 
-Enable **Offline Mode** in Settings to use Colota as a standalone tracker without any server. Locations are recorded and stored locally on-device.
+Enable **Offline Mode** in Settings to use Hutts Tracking as a standalone tracker without any server. Locations are recorded and stored locally on-device.
 
 ### Enabling Offline Mode
 
@@ -91,7 +91,7 @@ Toggle offline mode off in Settings to return to online mode. If you had an endp
 
 A location counts as delivered only when your server responds with a `2xx` status - any other status or a network error is treated as a failure and retried. For custom endpoints, make sure your script or webhook returns `2xx` on success.
 
-When sync attempts fail, Colota uses exponential backoff:
+When sync attempts fail, Hutts Tracking uses exponential backoff:
 
 ```
 Attempt 1: Immediate

@@ -59,7 +59,7 @@ describe("WelcomeCard", () => {
   it("renders welcome title and subtitle", () => {
     const { getByText } = render(<WelcomeCard {...defaultProps} />)
 
-    expect(getByText("Welcome to Colota")).toBeTruthy()
+    expect(getByText("Welcome to Hutts Tracking")).toBeTruthy()
     expect(getByText("Get started by completing these steps:")).toBeTruthy()
   })
 

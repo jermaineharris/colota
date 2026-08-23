@@ -17,7 +17,7 @@ import BackupService, {
 import { showAlert, showConfirm, showChoice } from "../services/modalService"
 import { logger } from "../utils/logger"
 import { fonts } from "../styles/typography"
-import { fontSizes } from "@colota/shared"
+import { fontSizes } from "@hutts-tracking/shared"
 import type { ThemeColors } from "../types/global"
 
 type Props = RootScreenProps<"Backup & Restore">
@@ -36,12 +36,12 @@ function restoreErrorMessage(e: unknown): string {
     case "E_BACKUP_WRONG_PASSWORD":
       return "Incorrect password, or the backup file is corrupted near the start."
     case "E_BACKUP_BAD_MAGIC":
-      return "This file is not a Colota backup."
+      return "This file is not a Hutts Tracking backup."
     case "E_BACKUP_UNSUPPORTED_SCHEMA":
-      return "This backup was made with a newer version of Colota. Update the app first."
+      return "This backup was made with a newer version of Hutts Tracking. Update the app first."
     case "E_BACKUP_UNSUPPORTED_VERSION":
     case "E_BACKUP_UNSUPPORTED_KDF":
-      return "This backup was made with a different version of Colota."
+      return "This backup was made with a different version of Hutts Tracking."
     case "E_BACKUP_INTEGRITY_FAIL":
       return "The backup file is corrupted."
     case "E_BACKUP_TRUNCATED":

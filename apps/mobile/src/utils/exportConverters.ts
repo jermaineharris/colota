@@ -44,15 +44,15 @@ export const EXPORT_FORMATS: Record<ExportFormat, ExportFormatConfig> = EXPORT_F
 // Mirrors ExportConverters.renderExportFilename so the settings screen can preview a name without
 // a bridge call per keystroke. Native is authoritative; both suites assert the same expectations.
 
-export const FILENAME_MARKER = "colota_export"
-export const DEFAULT_FILENAME_TEMPLATE = "colota_export_{date}_{time}"
+export const FILENAME_MARKER = "huttstracking_export"
+export const DEFAULT_FILENAME_TEMPLATE = "huttstracking_export_{date}_{time}"
 
 const MAX_TEMPLATE_LENGTH = 100
 const MAX_DEVICE_LENGTH = 32
 const ILLEGAL_FILENAME_CHARS = /[\\/:*?"<>|{}]/g
 
 /**
- * The marker lets cleanup tell Colota's files from the user's; {date} and {time} keep each export
+ * The marker lets cleanup tell Hutts Tracking's files from the user's; {date} and {time} keep each export
  * uniquely named and chronologically sortable.
  */
 export function isValidFilenameTemplate(template: string): boolean {

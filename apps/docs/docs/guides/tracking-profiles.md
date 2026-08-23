@@ -98,7 +98,7 @@ Note that Stationary has the highest priority so it takes over from Walking when
 
 ## Active Profile Indicators
 
-When a profile is active, Colota shows it in two places:
+When a profile is active, Hutts Tracking shows it in two places:
 
 - **Notification** - The foreground notification title changes from "Colota Tracking" to "Colota · ProfileName" (e.g., "Colota · Charging")
 - **Dashboard** - An info card appears on the map showing the active profile name. When inside a pause zone, the pause card shows which profile will resume on exit (e.g., "Profile 'Charging' resumes on exit").

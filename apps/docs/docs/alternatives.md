@@ -8,7 +8,7 @@ Colota is one of several Android apps that can record and forward GPS location d
 
 ## Comparison
 
-|                                        | Colota | OwnTracks | GPSLogger | Traccar Client | μLogger |
+|                                        | Hutts Tracking | OwnTracks | GPSLogger | Traccar Client | μLogger |
 | -------------------------------------- | :----: | :-------: | :-------: | :------------: | :-----: |
 | In-app location history & trip view    |   ✓    |     –     |     –     |       –        |    –    |
 | File export (GPX, KML, CSV…)           |   ✓    |     –     |     ✓     |       –        |    ✓    |
@@ -24,7 +24,7 @@ Colota is one of several Android apps that can record and forward GPS location d
 
 ## When to use each
 
-**Colota** is a good fit if you want a self-hosted tracking app with location history, geofencing, and backend flexibility - and you want to see and manage your data inside the app itself.
+**Hutts Tracking** is a good fit if you want a self-hosted tracking app with location history, geofencing, and backend flexibility - and you want to see and manage your data inside the app itself.
 
 **[OwnTracks](https://owntracks.org)** is a better fit if you need MQTT support. It has both Android and iOS clients, making it the natural choice for mixed-platform households.
 

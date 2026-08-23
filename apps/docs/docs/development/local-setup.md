@@ -29,7 +29,7 @@ This installs dependencies for all workspace packages (`apps/mobile`, `apps/docs
 The shared package must be compiled before other packages can use it:
 
 ```bash
-npm run build -w @colota/shared
+npm run build -w @hutts-tracking/shared
 ```
 
 This runs `tsc` and outputs compiled JavaScript to `packages/shared/dist/`.
@@ -79,7 +79,7 @@ The app reads build configuration from `apps/mobile/android/app/build.gradle`. K
 
 | Property            | Default      | Description                |
 | ------------------- | ------------ | -------------------------- |
-| `applicationId`     | `com.Colota` | Android package identifier |
+| `applicationId`     | `com.huttsmedia.huttstracking` | Android package identifier |
 | `minSdkVersion`     | 26           | Minimum Android 8.0        |
 | `targetSdkVersion`  | 36           | Target Android 16          |
 | `compileSdkVersion` | 36           | Compile against Android 16 |
@@ -126,7 +126,7 @@ colota/
 │   │   │   ├── services/            # Native bridge services
 │   │   │   ├── contexts/            # React Context providers
 │   │   │   ├── utils/               # Logger, validation, converters
-│   │   │   ├── styles/              # Re-exports from @colota/shared
+│   │   │   ├── styles/              # Re-exports from @hutts-tracking/shared
 │   │   │   └── types/               # TypeScript type definitions
 │   │   └── App.tsx                  # Entry point with navigation
 │   └── docs/
@@ -151,7 +151,7 @@ colota/
 Run the React Native test suite (Jest):
 
 ```bash
-npm test -w @colota/mobile
+npm test -w @hutts-tracking/mobile
 ```
 
 ### Kotlin Unit Tests
@@ -182,8 +182,8 @@ Test files are located in `apps/mobile/android/app/src/test/java/com/Colota/`. T
 ### Linting and Type Checking
 
 ```bash
-npm run lint -w @colota/mobile        # ESLint
-npx -w @colota/mobile tsc --noEmit    # TypeScript type check
+npm run lint -w @hutts-tracking/mobile        # ESLint
+npx -w @hutts-tracking/mobile tsc --noEmit    # TypeScript type check
 ```
 
 ## Common Tasks

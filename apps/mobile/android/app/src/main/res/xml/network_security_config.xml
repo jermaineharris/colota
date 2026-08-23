@@ -13,7 +13,7 @@
         NOT honored so a malicious or compromised CA on the device can't MITM
         location sync. Self-hosted users with a private CA should import it via
         the mTLS Settings screen -> Trusted Server CA - that path is
-        Colota-scoped and backed by Android Keystore.
+        App-scoped and backed by Android Keystore.
     -->
     <base-config cleartextTrafficPermitted="true">
         <trust-anchors>

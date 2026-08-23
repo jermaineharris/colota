@@ -1,12 +1,12 @@
 /**
- * Docusaurus Root wrapper - injects CSS custom properties from @colota/shared.
+ * Docusaurus Root wrapper - injects CSS custom properties from @hutts-tracking/shared.
  * This makes packages/shared/src/colors.ts the single source of truth
  * for both the mobile app and the docs site.
  */
 
 import React from "react"
-import { lightColors, darkColors, fontFamily } from "@colota/shared"
-import type { ThemeColors } from "@colota/shared"
+import { lightColors, darkColors, fontFamily } from "@hutts-tracking/shared"
+import type { ThemeColors } from "@hutts-tracking/shared"
 
 function colorVars(colors: ThemeColors) {
   return `

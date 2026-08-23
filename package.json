@@ -1,5 +1,5 @@
 {
-  "name": "colota",
+  "name": "hutts-tracking",
   "private": true,
   "workspaces": [
     "apps/*",

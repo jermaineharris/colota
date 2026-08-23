@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Map Tile Server
 
-By default, Colota loads maps from [maps.mxd.codes](https://maps.mxd.codes) - a self-hosted tile server I run for this app. You can swap it out for your own if needed.
+By default, Hutts Tracking loads maps from [maps.mxd.codes](https://maps.mxd.codes) - a self-hosted tile server I run for this app. You can swap it out for your own if needed.
 
 ## Default Server
 
@@ -24,7 +24,7 @@ If the default server is unavailable or you run into issues, you can either conf
 
 :::tip[Support the server]
 
-If you find Colota useful and want to help keep the default server running, contributions are welcome - the hosting runs at 17,94€/month. [mxd.codes/support](https://mxd.codes/support)
+If you find Hutts Tracking useful and want to help keep the default server running, contributions are welcome - the hosting runs at 17,94€/month. [mxd.codes/support](https://mxd.codes/support)
 
 :::
 

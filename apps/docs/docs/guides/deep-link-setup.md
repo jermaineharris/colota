@@ -6,7 +6,7 @@ import DeepLinkGenerator from '@site/src/components/DeepLinkGenerator'
 
 # Deep Link Setup
 
-Configure Colota instantly using a `colota://setup` URL. Generate a link or QR code with your server settings and share it with users - no manual typing required.
+Configure Hutts Tracking instantly using a `huttstracking://setup` URL. Generate a link or QR code with your server settings and share it with users - no manual typing required.
 
 ## Link Generator
 
@@ -16,7 +16,7 @@ Fill in the settings you want to configure. Only the fields you set will be incl
 
 ## Sharing From the App
 
-You can also generate a setup link straight from an existing installation, without the browser generator. Open **Settings -> Share Setup**, tick which categories to include - Tracking, Sync, API, Geofences, Profiles and Credentials - and tap **Share** to send the `colota://setup` link through any app.
+You can also generate a setup link straight from an existing installation, without the browser generator. Open **Settings -> Share Setup**, tick which categories to include - Tracking, Sync, API, Geofences, Profiles and Credentials - and tap **Share** to send the `huttstracking://setup` link through any app.
 
 Credentials are off by default. Enabling them puts your username, password, bearer token or custom headers into the link in plain text, so only share it over a trusted channel.
 
@@ -25,7 +25,7 @@ Geofences and tracking profiles can also be shared on their own from the [Geofen
 ## How It Works
 
 1. User taps the link or scans a QR code
-2. Colota opens and shows a confirmation screen listing all settings that will be applied
+2. Hutts Tracking opens and shows a confirmation screen listing all settings that will be applied
 3. Sensitive values (passwords, tokens) are masked in the preview
 4. User taps **Apply Configuration** to save or **Cancel** to discard
 5. Settings are persisted and the app navigates to the Dashboard
@@ -33,7 +33,7 @@ Geofences and tracking profiles can also be shared on their own from the [Geofen
 ## URL Format
 
 ```
-colota://setup?config=BASE64_ENCODED_JSON
+huttstracking://setup?config=BASE64_ENCODED_JSON
 ```
 
 The `config` parameter is a base64-encoded JSON object. Only include the settings you want to change - everything else keeps its current value.
@@ -124,7 +124,7 @@ const config = {
   ]
 };
 const encoded = Buffer.from(JSON.stringify(config)).toString('base64');
-console.log('colota://setup?config=' + encoded);
+console.log('huttstracking://setup?config=' + encoded);
 "
 ```
 
@@ -135,7 +135,7 @@ python3 -c "
 import json, base64
 config = {'endpoint': 'https://my-server.com/api/locations', 'interval': 10}
 encoded = base64.b64encode(json.dumps(config).encode()).decode()
-print(f'colota://setup?config={encoded}')
+print(f'huttstracking://setup?config={encoded}')
 "
 ```
 

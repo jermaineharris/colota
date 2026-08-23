@@ -16,7 +16,7 @@ Two ways to provide a client certificate.
 
 If your cert is already installed in Android's KeyChain (via Android Settings -> Encryption & credentials):
 
-1. Open Colota -> Settings -> Connection -> Authentication & Headers -> **Client Certificate (mTLS)**
+1. Open Hutts Tracking -> Settings -> Connection -> Authentication & Headers -> **Client Certificate (mTLS)**
 2. Tap **Pick from device certificates**
 3. Android's system dialog appears. Select your cert.
 4. The screen now shows the cert's subject, issuer and expiry date.
@@ -28,7 +28,7 @@ Colota only remembers which cert you picked - the cert itself stays where it alr
 If you have a PKCS12 file but the cert isn't installed at the OS level:
 
 1. Move the `.p12` to your phone (any reasonably-secure transport works - syncthing, USB, etc.)
-2. Open Colota -> Settings -> Connection -> Authentication & Headers -> **Client Certificate (mTLS)**
+2. Open Hutts Tracking -> Settings -> Connection -> Authentication & Headers -> **Client Certificate (mTLS)**
 3. Tap **Import .p12 / .pfx**
 4. Pick the file, enter the password (leave blank if none), tap **Save**
 5. The screen now shows the cert's subject, issuer and expiry date
@@ -44,7 +44,7 @@ Hostname verification is always on - the server's certificate must match the hos
 Colota's HTTPS trust anchors:
 
 1. **System CAs** that ship with Android (Let's Encrypt, DigiCert, ISRG, Google Trust Services, etc.). Always applied.
-2. **In-app imported CA** added through the Trusted Server CA section. One slot, trusted only by Colota.
+2. **In-app imported CA** added through the Trusted Server CA section. One slot, trusted only by Hutts Tracking.
 
 Either anchor accepting the server's chain is enough - the two layers are additive.
 
@@ -63,8 +63,8 @@ In **Connection Settings**, set your endpoint to your `https://...` URL and tap 
 
 | Message | Likely cause | Fix |
 | --- | --- | --- |
-| `Server certificate is not trusted (self-signed or unknown CA)` | Your server's cert is signed by a CA Colota doesn't trust | Import the CA via mTLS Settings -> Trusted Server CA, or use a publicly-trusted cert |
-| `Server requires a client certificate (mTLS) but none is configured` | Server demanded mTLS, Colota didn't send one | Import a `.p12` in the Client Certificate section |
+| `Server certificate is not trusted (self-signed or unknown CA)` | Your server's cert is signed by a CA Hutts Tracking doesn't trust | Import the CA via mTLS Settings -> Trusted Server CA, or use a publicly-trusted cert |
+| `Server requires a client certificate (mTLS) but none is configured` | Server demanded mTLS, Hutts Tracking didn't send one | Import a `.p12` in the Client Certificate section |
 | `Server rejected the client certificate` | Cert reached the server but was rejected | Wrong CA, expired cert, or revoked - check what your reverse proxy expects |
 | `Incorrect password for client certificate` | The provided password doesn't unlock the `.p12` | Re-import with the correct password |
 | `Hostname not verified` | Server cert is valid but doesn't list the hostname/IP you connected to | Reissue the server cert with a SAN that includes your hostname/IP |
@@ -77,7 +77,7 @@ Once imported, the cert lives in the OS keystore - not in the app's regular sett
 
 - You don't need to remember the PKCS12 password. It's used during import and then discarded.
 - If you picked a cert from the device certificates list, it survives an app reinstall.
-- If you imported a `.p12`, uninstalling Colota removes it - re-import after reinstall.
+- If you imported a `.p12`, uninstalling Hutts Tracking removes it - re-import after reinstall.
 - The Trusted Server CA is a public certificate, so it stays alongside the app's other settings.
 
 ### Removing

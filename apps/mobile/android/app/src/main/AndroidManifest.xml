@@ -63,7 +63,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="colota" />
+                <data android:scheme="huttstracking" />
             </intent-filter>
             <meta-data
                 android:name="android.app.shortcuts"
@@ -85,8 +85,8 @@
             android:foregroundServiceType="location"
         >
             <intent-filter>
-                <action android:name="com.Colota.RECHECK_PAUSE_ZONE" />
-                <action android:name="com.Colota.ACTION_MANUAL_FLUSH" />
+                <action android:name="com.huttsmedia.huttstracking.RECHECK_PAUSE_ZONE" />
+                <action android:name="com.huttsmedia.huttstracking.ACTION_MANUAL_FLUSH" />
             </intent-filter>
         </service>
 
@@ -144,8 +144,8 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.Colota.action.START_TRACKING" />
-                <action android:name="com.Colota.action.STOP_TRACKING" />
+                <action android:name="com.huttsmedia.huttstracking.action.START_TRACKING" />
+                <action android:name="com.huttsmedia.huttstracking.action.STOP_TRACKING" />
             </intent-filter>
         </receiver>
 

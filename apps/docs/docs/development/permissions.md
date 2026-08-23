@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Android Permissions
 
-These are the permissions Colota uses and why. None are related to analytics, advertising, or data collection.
+These are the permissions Hutts Tracking uses and why. None are related to analytics, advertising, or data collection.
 
 ## Permission Overview
 
@@ -26,7 +26,7 @@ These are the permissions Colota uses and why. None are related to analytics, ad
 
 ## Permission Request Flow
 
-When you start tracking for the first time, Colota requests permissions in sequence:
+When you start tracking for the first time, Hutts Tracking requests permissions in sequence:
 
 1. **Fine Location** - Required to access GPS hardware
 2. **Background Location** (Android 10+) - Appears as a separate dialog asking to "Allow all the time"
@@ -75,7 +75,7 @@ android.permission.ACCESS_WIFI_STATE
 android.permission.RECEIVE_BOOT_COMPLETED
 ```
 
-If tracking was active when the device was powered off, Colota automatically restarts the foreground service after boot. This is handled by `LocationBootReceiver`.
+If tracking was active when the device was powered off, Hutts Tracking automatically restarts the foreground service after boot. This is handled by `LocationBootReceiver`.
 
 ### Notifications
 
@@ -83,7 +83,7 @@ If tracking was active when the device was powered off, Colota automatically res
 android.permission.POST_NOTIFICATIONS
 ```
 
-On Android 13 and later, apps need this permission before they can show notifications. Colota asks for it but does not require it - tracking runs either way. Denying it hides the tracking notification, so you lose the live status and any alert when tracking stops.
+On Android 13 and later, apps need this permission before they can show notifications. Hutts Tracking asks for it but does not require it - tracking runs either way. Denying it hides the tracking notification, so you lose the live status and any alert when tracking stops.
 
 ### Local Network Access
 
@@ -91,11 +91,11 @@ On Android 13 and later, apps need this permission before they can show notifica
 android.permission.ACCESS_LOCAL_NETWORK
 ```
 
-Starting with Android 17, apps need this permission to connect to devices on the local network. Colota requests it when you use **Test Connection** with a private/local endpoint - this includes IP addresses (e.g. `192.168.x.x`, `10.x.x.x`, `172.16-31.x.x`, `100.64.x.x`) and hostnames that resolve to private IPs via DNS (e.g. `server.local`). Loopback addresses (`localhost` / `127.0.0.1`) do not require this permission. If your server is a public HTTPS endpoint, this permission is never requested.
+Starting with Android 17, apps need this permission to connect to devices on the local network. Hutts Tracking requests it when you use **Test Connection** with a private/local endpoint - this includes IP addresses (e.g. `192.168.x.x`, `10.x.x.x`, `172.16-31.x.x`, `100.64.x.x`) and hostnames that resolve to private IPs via DNS (e.g. `server.local`). Loopback addresses (`localhost` / `127.0.0.1`) do not require this permission. If your server is a public HTTPS endpoint, this permission is never requested.
 
 :::note[Android 16]
 
-On some Android 16 devices, local network access may be enforced early via security patches. In this case, Android uses the **Nearby Wi-Fi Devices** (`NEARBY_WIFI_DEVICES`) permission instead. If your local server is unreachable on Android 16, go to **Android Settings > Apps > Colota > Permissions** and enable **Nearby devices** manually.
+On some Android 16 devices, local network access may be enforced early via security patches. In this case, Android uses the **Nearby Wi-Fi Devices** (`NEARBY_WIFI_DEVICES`) permission instead. If your local server is unreachable on Android 16, go to **Android Settings > Apps > Hutts Tracking > Permissions** and enable **Nearby devices** manually.
 
 :::
 
@@ -105,7 +105,7 @@ On some Android 16 devices, local network access may be enforced early via secur
 android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
 ```
 
-This allows Colota to show the system dialog asking to exempt the app from battery optimization (Doze mode). When exempted, Android is less likely to kill the tracking service during idle periods. This is optional - tracking works without it, but may be less reliable on some devices.
+This allows Hutts Tracking to show the system dialog asking to exempt the app from battery optimization (Doze mode). When exempted, Android is less likely to kill the tracking service during idle periods. This is optional - tracking works without it, but may be less reliable on some devices.
 
 ### Wake Lock
 
@@ -113,8 +113,8 @@ This allows Colota to show the system dialog asking to exempt the app from batte
 android.permission.WAKE_LOCK
 ```
 
-Lets Colota briefly hold the CPU awake when a heartbeat alarm fires during Doze. The stationary-profile heartbeat holds it while it acquires a location fix, and the geofence heartbeat while it writes and sends the zone-center point. It is also used internally by WorkManager for auto-export and battery-recovery jobs. Android grants this permission automatically and it gives no access to personal data.
+Lets Hutts Tracking briefly hold the CPU awake when a heartbeat alarm fires during Doze. The stationary-profile heartbeat holds it while it acquires a location fix, and the geofence heartbeat while it writes and sends the zone-center point. It is also used internally by WorkManager for auto-export and battery-recovery jobs. Android grants this permission automatically and it gives no access to personal data.
 
 ## Revoking Permissions
 
-You can revoke any permission at any time through Android Settings → Apps → Colota → Permissions. Revoking location permissions will stop tracking. Other permissions can be toggled without affecting the core tracking functionality.
+You can revoke any permission at any time through Android Settings → Apps → Hutts Tracking → Permissions. Revoking location permissions will stop tracking. Other permissions can be toggled without affecting the core tracking functionality.

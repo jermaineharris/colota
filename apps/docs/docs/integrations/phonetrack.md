@@ -21,7 +21,7 @@ sidebar_position: 5
 
 :::tip
 
-Which PhoneTrack URL to use? PhoneTrack offers several logging URLs (OwnTracks, GPS Logger, OpenGTS, etc.). Use the **OwnTracks** URL since Colota sends location data as a JSON POST body, which matches the OwnTracks protocol. The other URLs (like GPS Logger) expect query parameters and may not work correctly.
+Which PhoneTrack URL to use? PhoneTrack offers several logging URLs (OwnTracks, GPS Logger, OpenGTS, etc.). Use the **OwnTracks** URL since Hutts Tracking sends location data as a JSON POST body, which matches the OwnTracks protocol. The other URLs (like GPS Logger) expect query parameters and may not work correctly.
 
 :::
 

@@ -9,8 +9,8 @@ sidebar_position: 2
 ## Setup
 
 1. **Install GeoPulse** - follow the [GeoPulse documentation](https://tess1o.github.io/geopulse/docs/getting-started/introduction)
-2. **Add a Colota location source** in GeoPulse under **Location Sources**
-3. **Set a username and password** for the Colota source
+2. **Add a Hutts Tracking location source** in GeoPulse under **Location Sources**
+3. **Set a username and password** for the Hutts Tracking source
 4. **Configure Colota**:
    - Go to **Settings > API Settings**
    - Select the **GeoPulse** template
@@ -41,7 +41,7 @@ The GeoPulse template uses Colota's default field names with no custom fields:
 
 ## Field Mapping
 
-| Colota Field | GeoPulse Field | Description           |
+| Hutts Tracking Field | GeoPulse Field | Description           |
 | ------------ | -------------- | --------------------- |
 | `lat`        | `lat`          | Latitude              |
 | `lon`        | `lon`          | Longitude             |
@@ -55,6 +55,6 @@ The GeoPulse template uses Colota's default field names with no custom fields:
 
 ## Geofence Compatibility
 
-GeoPulse needs multiple points clustered at your arrival location to confirm a trip has ended there - a single point is indistinguishable from a brief stop at a traffic light. Colota handles this automatically: when you enter a pause zone, it keeps logging real GPS points for 3.5× your tracking interval before pausing, producing several arrival points for GeoPulse to finalize trip arrival.
+GeoPulse needs multiple points clustered at your arrival location to confirm a trip has ended there - a single point is indistinguishable from a brief stop at a traffic light. Hutts Tracking handles this automatically: when you enter a pause zone, it keeps logging real GPS points for 3.5× your tracking interval before pausing, producing several arrival points for GeoPulse to finalize trip arrival.
 
 Note: GeoPulse also supports OwnTracks as a location source. If you prefer, you can use the OwnTracks template with the endpoint `https://geopulse.yourdomain.com/api/owntracks` instead.

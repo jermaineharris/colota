@@ -303,7 +303,7 @@ export function AutoExportScreen(_props: ScreenProps) {
       setFilenameTemplateInput(filenameTemplate)
       showAlert(
         "Invalid Template",
-        "The template must contain colota_export, {date} and {time}. The marker lets Colota recognise its own files during cleanup, and the date and time keep every export uniquely named and correctly ordered. Matching is case-sensitive.",
+        "The template must contain huttstracking_export, {date} and {time}. The marker lets Hutts Tracking recognise its own files during cleanup, and the date and time keep every export uniquely named and correctly ordered. Matching is case-sensitive.",
         "warning"
       )
       return
@@ -460,7 +460,7 @@ export function AutoExportScreen(_props: ScreenProps) {
               </View>
             ))}
             <Text style={[styles.templateHint, { color: colors.textSecondary }]}>
-              Must contain colota_export, {"{date}"} and {"{time}"}. The extension is added automatically.
+              Must contain huttstracking_export, {"{date}"} and {"{time}"}. The extension is added automatically.
             </Text>
             <Text style={[styles.templatePreview, { color: colors.textSecondary }]}>
               Preview:{" "}
@@ -554,7 +554,7 @@ export function AutoExportScreen(_props: ScreenProps) {
               hint={
                 filenameTemplate.includes("{device}")
                   ? "Set to 0 for unlimited. Counts only exports named for this device model, so other models sharing the folder are untouched."
-                  : "Set to 0 for unlimited. Counts every Colota export in the folder. Add {device} to the file name to keep files per device instead."
+                  : "Set to 0 for unlimited. Counts every Hutts Tracking export in the folder. Add {device} to the file name to keep files per device instead."
               }
             />
           </Card>

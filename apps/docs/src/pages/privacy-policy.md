@@ -78,7 +78,7 @@ Backups are written to a destination you choose via the Android file picker. If 
 
 Restoring a backup overwrites the current database and credentials.
 
-The App supports configuration via `colota://setup` deep links. These links can include server endpoints and authentication credentials. You must explicitly confirm before any configuration is applied. Only open setup links from sources you trust.
+The App supports configuration via `huttstracking://setup` deep links. These links can include server endpoints and authentication credentials. You must explicitly confirm before any configuration is applied. Only open setup links from sources you trust.
 
 You can also generate a setup link to share your own configuration (Settings -> Share Setup). Credentials are excluded by default; if you choose to include them they appear in the link in plain text, so only share it over a trusted channel.
 
@@ -86,7 +86,7 @@ You can also generate a setup link to share your own configuration (Settings -> 
 
 The App **only transmits data to a server endpoint that you configure**. No data is sent anywhere by default.
 
-- Data is sent via HTTPS (HTTP is only allowed for local/private network addresses). Self-signed or private-CA TLS certificates are supported by importing the CA in the in-app mTLS Settings (Trusted Server CA). Trust is scoped to Colota only
+- Data is sent via HTTPS (HTTP is only allowed for local/private network addresses). Self-signed or private-CA TLS certificates are supported by importing the CA in the in-app mTLS Settings (Trusted Server CA). Trust is scoped to Hutts Tracking only
 - The **Test Connection** button sends a request to your configured endpoint to verify it works. These requests go only to your own server
 - No analytics, tracking pixels, or advertising networks are used
 - No data is shared with the developer, advertisers or analytics providers

@@ -4,11 +4,11 @@ sidebar_position: 3
 
 # Automation
 
-Trigger Colota from outside the app - useful for hands-free workflows like starting tracking when your phone connects to car Bluetooth.
+Trigger Hutts Tracking from outside the app - useful for hands-free workflows like starting tracking when your phone connects to car Bluetooth.
 
 ## App Shortcuts
 
-Long-press the Colota icon on your home screen to access shortcuts for starting and stopping tracking without opening the app.
+Long-press the Hutts Tracking icon on your home screen to access shortcuts for starting and stopping tracking without opening the app.
 
 ### Available shortcuts
 
@@ -22,7 +22,7 @@ Long-press the Colota icon on your home screen to access shortcuts for starting 
 Shortcuts use your saved settings directly - no UI interaction needed. Before using shortcuts, make sure you have:
 
 - Granted location permissions (fine + background)
-- Exempted Colota from battery optimization
+- Exempted Hutts Tracking from battery optimization
 - Configured an endpoint (if syncing to a server)
 
 If permissions have not been granted, the start shortcut will not work. Open the app first to complete setup.
@@ -36,26 +36,26 @@ Shortcuts can be triggered by automation apps, making hands-free tracking possib
 1. Open the **Routines** app
 2. Create a new routine
 3. Add a trigger (e.g. connected to car Bluetooth)
-4. Add action → **App shortcuts** → select Colota → **Start Tracking**
+4. Add action → **App shortcuts** → select Hutts Tracking → **Start Tracking**
 
 **Tasker** (shortcut route):
 
 1. Create a new Task
 2. Add action → **App** → **Shortcut**
-3. Select the Colota start or stop shortcut
+3. Select the Hutts Tracking start or stop shortcut
 
 ## Broadcast Intents
 
-A more direct path for power users: Colota exposes start and stop as Android broadcast intents that any automation app, script or hardware-button app can fire.
+A more direct path for power users: Hutts Tracking exposes start and stop as Android broadcast intents that any automation app, script or hardware-button app can fire.
 
 ### Available actions
 
 | Action                             | Effect                                                |
 | ---------------------------------- | ----------------------------------------------------- |
-| `com.Colota.action.START_TRACKING` | Starts the tracking service using your saved settings |
-| `com.Colota.action.STOP_TRACKING`  | Stops the tracking service                            |
+| `com.huttsmedia.huttstracking.action.START_TRACKING` | Starts the tracking service using your saved settings |
+| `com.huttsmedia.huttstracking.action.STOP_TRACKING`  | Stops the tracking service                            |
 
-Action strings are **case-sensitive**. `com.Colota` with a capital **C** is correct - the lowercase form (`com.colota`) is silently ignored.
+Action strings are **case-sensitive**. `com.huttsmedia.huttstracking` with a capital **C** is correct - the lowercase form (`com.huttsmedia.huttstracking`) is silently ignored.
 
 A short toast confirms each action.
 
@@ -63,9 +63,9 @@ A short toast confirms each action.
 
 1. Create a new Task
 2. Add action → **System** → **Send Intent**
-3. Set **Action** to `com.Colota.action.START_TRACKING` (or `STOP_TRACKING`)
+3. Set **Action** to `com.huttsmedia.huttstracking.action.START_TRACKING` (or `STOP_TRACKING`)
 4. Set **Target** to **Broadcast Receiver**
-5. Set **Package** to `com.Colota`
+5. Set **Package** to `com.huttsmedia.huttstracking`
 
 ### Security note
 

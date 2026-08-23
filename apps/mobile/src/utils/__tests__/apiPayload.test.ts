@@ -62,7 +62,7 @@ describe("buildTraccarJsonPayload", () => {
   })
 
   it("uses provided device_id", () => {
-    const result = buildTraccarJsonPayload({ ...baseParams, deviceId: "colota" }) as any
+    const result = buildTraccarJsonPayload({ ...baseParams, deviceId: "huttstracking" }) as any
     expect(result.device_id).toBe("colota")
   })
 })

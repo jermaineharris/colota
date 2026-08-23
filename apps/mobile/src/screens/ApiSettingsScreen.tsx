@@ -135,7 +135,7 @@ export function ApiSettingsScreen({}: ScreenProps) {
 
     if (isOverland) {
       const deviceId =
-        localCustomFields.find((f) => f.key === "device_id" || f.key === "tid" || f.key === "id")?.value ?? "colota"
+        localCustomFields.find((f) => f.key === "device_id" || f.key === "tid" || f.key === "id")?.value ?? "huttstracking"
       return JSON.stringify(
         buildOverlandBatchPayload({
           latitude: 52.12345,
@@ -155,7 +155,7 @@ export function ApiSettingsScreen({}: ScreenProps) {
     }
 
     if (isTraccarJson) {
-      const deviceId = localCustomFields.find((f) => f.key === "id" || f.key === "device_id")?.value ?? "colota"
+      const deviceId = localCustomFields.find((f) => f.key === "id" || f.key === "device_id")?.value ?? "huttstracking"
       return JSON.stringify(
         buildTraccarJsonPayload({
           latitude: 52.12345,
@@ -437,7 +437,7 @@ export function ApiSettingsScreen({}: ScreenProps) {
       // matches the previous mode's default (i.e. the user hasn't edited it).
       const prevDefault = mode === "batch" ? "_type" : "device_id"
       const nextDefault = mode === "batch" ? "device_id" : "_type"
-      const nextDefaultValue = mode === "batch" ? "colota" : "location"
+      const nextDefaultValue = mode === "batch" ? "huttstracking" : "location"
       const looksLikeOldDefault = localCustomFields.length === 1 && localCustomFields[0]?.key === prevDefault
       const newCustomFields = looksLikeOldDefault
         ? [{ key: nextDefault, value: nextDefaultValue, id: assignId() }]

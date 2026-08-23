@@ -174,7 +174,7 @@ export function TripDetailScreen({ route, navigation }: RootScreenProps<"Trip De
         await NativeLocationService.shareFile(
           filePath,
           EXPORT_FORMATS[format].mimeType,
-          `Colota ${displayName} - ${dateStr}`
+          `Hutts Tracking ${displayName} - ${dateStr}`
         )
         setShowExport(false)
       } catch (error) {

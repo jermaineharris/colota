@@ -169,7 +169,7 @@ export function AboutScreen({}: ScreenProps) {
     if (!buildConfig) return
 
     const lines = [
-      `Colota v${buildConfig.VERSION_NAME} (${buildConfig.VERSION_CODE})`,
+      `Hutts Tracking v${buildConfig.VERSION_NAME} (${buildConfig.VERSION_CODE})`,
       `Variant: ${getVariantLabel(buildConfig.FLAVOR)}`,
       `Target SDK: ${buildConfig.TARGET_SDK_VERSION} (Android ${getAndroidVersion(buildConfig.TARGET_SDK_VERSION)})`,
       `Min SDK: ${buildConfig.MIN_SDK_VERSION} (Android ${getAndroidVersion(buildConfig.MIN_SDK_VERSION)})`,
@@ -203,7 +203,7 @@ export function AboutScreen({}: ScreenProps) {
       <Container>
         <ScrollView contentContainerStyle={styles.scrollContent}>
           <View style={styles.header}>
-            <Text style={[styles.title, { color: colors.text }]}>Colota</Text>
+            <Text style={[styles.title, { color: colors.text }]}>Hutts Tracking</Text>
           </View>
         </ScrollView>
       </Container>
@@ -247,7 +247,7 @@ export function AboutScreen({}: ScreenProps) {
           >
             <Image source={icon} style={styles.appIcon} resizeMode="contain" />
           </Pressable>
-          <Text style={[styles.title, { color: colors.text }]}>Colota</Text>
+          <Text style={[styles.title, { color: colors.text }]}>Hutts Tracking</Text>
           <Pressable onPress={handleVersionTap} style={({ pressed }) => pressed && { opacity: 0.8 }}>
             <Text style={[styles.version, { color: colors.textSecondary }]}>Version {buildConfig.VERSION_NAME}</Text>
           </Pressable>
@@ -288,7 +288,7 @@ export function AboutScreen({}: ScreenProps) {
           <LinkRow
             icon={Code}
             title="Source Code"
-            subtitle="github.com/dietrichmax/colota"
+            subtitle="git.huttsenterprises.com/infra/hutts-tracking"
             url={REPO_URL}
             colors={colors}
             onOpenURL={handleOpenURL}
@@ -306,7 +306,7 @@ export function AboutScreen({}: ScreenProps) {
           <LinkRow
             icon={MessageCircle}
             title="Report a Bug"
-            subtitle="github.com/dietrichmax/colota/issues"
+            subtitle="git.huttsenterprises.com/infra/hutts-tracking/issues"
             url={ISSUES_URL}
             colors={colors}
             onOpenURL={handleOpenURL}
@@ -322,7 +322,7 @@ export function AboutScreen({}: ScreenProps) {
               onPress={() => handleOpenURL(TILE_SERVER_DOCS_URL)}
             >
               <View style={styles.linkTextContainer}>
-                <Text style={[styles.linkTitle, { color: colors.text }]}>Colota Tiles</Text>
+                <Text style={[styles.linkTitle, { color: colors.text }]}>Map Tiles</Text>
                 <Text style={[styles.linkSubtitle, { color: colors.textLight }]}>
                   Self-hosted map tile server - configure your own
                 </Text>

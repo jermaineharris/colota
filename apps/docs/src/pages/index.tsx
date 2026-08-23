@@ -26,18 +26,18 @@ function HomepageHeader() {
             </Link>
             <Link
               className={clsx("button button--lg", styles.outlineButton)}
-              href="https://play.google.com/store/apps/details?id=com.Colota&hl=en-US"
+              href="https://play.google.com/store/apps/details?id=com.huttsmedia.huttstracking&hl=en-US"
             >
               Google Play
             </Link>
           </div>
           <div className={styles.downloadLinks}>
             <span className={styles.downloadLabel}>Also available on</span>
-            <Link className={styles.downloadLink} href="https://f-droid.org/packages/com.Colota/">
+            <Link className={styles.downloadLink} href="https://f-droid.org/packages/com.huttsmedia.huttstracking/">
               F-Droid
             </Link>{" "}
             and
-            <Link className={styles.downloadLink} href="https://apt.izzysoft.de/packages/com.Colota/">
+            <Link className={styles.downloadLink} href="https://apt.izzysoft.de/packages/com.huttsmedia.huttstracking/">
               IzzyOnDroid
             </Link>
           </div>

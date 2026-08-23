@@ -6,7 +6,7 @@ sidebar_position: 4
 
 ## App doesn't track in background
 
-- Go to **Settings > Apps > Colota > Battery** and select **Unrestricted**
+- Go to **Settings > Apps > Hutts Tracking > Battery** and select **Unrestricted**
 - Verify location permissions are set to **Allow all the time**
 - Grant notification permission if you want to see tracking status
 - If the notification disappeared while the app still shows tracking on, Android killed the service. Opening the app restarts it. With battery set to **Unrestricted** it also restarts on its own, usually within 15 to 30 minutes
@@ -14,10 +14,10 @@ sidebar_position: 4
 ## Tracking doesn't start after reboot
 
 - Make sure tracking was active before the reboot
-- Do not force-stop Colota. A force-stopped app receives no boot broadcast until you open it again
-- **Samsung**: turn off "Pause app activity if unused" for Colota (**Settings > Apps > Colota > Battery**)
-- **Xiaomi, Huawei, Oppo, Vivo, OnePlus**: allow Autostart for Colota in the phone's own security or battery app
-- Disable battery optimization for Colota (**Settings > Apps > Colota > Battery > Unrestricted**)
+- Do not force-stop Hutts Tracking. A force-stopped app receives no boot broadcast until you open it again
+- **Samsung**: turn off "Pause app activity if unused" for Hutts Tracking (**Settings > Apps > Hutts Tracking > Battery**)
+- **Xiaomi, Huawei, Oppo, Vivo, OnePlus**: allow Autostart for Hutts Tracking in the phone's own security or battery app
+- Disable battery optimization for Hutts Tracking (**Settings > Apps > Hutts Tracking > Battery > Unrestricted**)
 - Open the app once if you have not used it for months. Android resets permissions for unused apps
 
 ## Tracking stopped on low battery and didn't resume
@@ -26,7 +26,7 @@ Colota stops tracking below 5% (when unplugged) and resumes automatically once y
 
 - **Only battery stops auto-resume, not manual stops** - if you stopped tracking yourself, start it again from the app
 - **Don't force-stop the app** - that cancels the scheduled resume; it recovers on the next launch or reboot
-- **Set the battery to Unrestricted** (**Settings > Apps > Colota > Battery**) so the OS doesn't delay the charge-triggered resume.
+- **Set the battery to Unrestricted** (**Settings > Apps > Hutts Tracking > Battery**) so the OS doesn't delay the charge-triggered resume.
 - **A non-charging cable** (data-only, or an already-full battery) may not trigger it; a reboot while plugged in will
 
 ## GPS accuracy is poor
@@ -56,14 +56,14 @@ If **Test Connection** fails, the message points at the specific layer that brok
 
 | Message | What it means | Fix |
 | --- | --- | --- |
-| `Server certificate is not trusted (self-signed or unknown CA)` | TLS layer: Colota can't validate the server's certificate chain | Import your CA via mTLS Settings -> Trusted Server CA, or use a publicly-trusted cert. User-installed CAs from Android Settings are not honored. |
-| `Server requires a client certificate (mTLS) but none is configured` | TLS layer: the server demanded mTLS, Colota didn't present one | Import a `.p12` in mTLS Settings -> Client Certificate |
+| `Server certificate is not trusted (self-signed or unknown CA)` | TLS layer: Hutts Tracking can't validate the server's certificate chain | Import your CA via mTLS Settings -> Trusted Server CA, or use a publicly-trusted cert. User-installed CAs from Android Settings are not honored. |
+| `Server requires a client certificate (mTLS) but none is configured` | TLS layer: the server demanded mTLS, Hutts Tracking didn't present one | Import a `.p12` in mTLS Settings -> Client Certificate |
 | `Server rejected the client certificate` | TLS layer: cert was sent but rejected (wrong CA, expired, revoked) | Verify the cert matches what your reverse proxy expects |
 | `Incorrect password for client certificate` | Import-time: the password doesn't unlock the `.p12` | Re-import with the correct password |
 | `Hostname not verified` | TLS layer: server cert doesn't list the hostname/IP you connected to | Reissue the server cert with a SAN that includes your hostname/IP |
 | `Server returned <code>: ...` | HTTP layer: TLS succeeded, but the server returned a 4xx/5xx | Check your auth headers, field mapping, and server logs |
 | `Connection timed out` | Network layer: the server didn't respond in time | Check connectivity, firewall, server availability |
-| `Local network access denied` | Permission: Android 16+ blocked the connection to a private IP | Grant Local Network Access (Settings -> Apps -> Colota -> Permissions) |
+| `Local network access denied` | Permission: Android 16+ blocked the connection to a private IP | Grant Local Network Access (Settings -> Apps -> Hutts Tracking -> Permissions) |
 
 ## Viewing and exporting logs
 
@@ -93,7 +93,7 @@ The file grows the whole time logging is on. Tap **Clear log files** on the **Fi
 
 ## Debugging with adb logcat
 
-Filter logs to see what Colota is doing:
+Filter logs to see what Hutts Tracking is doing:
 
 ```bash
 adb logcat | grep -E "LocationDB|NetworkManager|SyncManager|LocationService|GeofenceHelper"
@@ -114,13 +114,13 @@ You can also use the **Location History** screen in the app to see recorded loca
 
 ## Local server not reachable (Android 16+)
 
-Starting with Android 17, connecting to local/private network addresses requires the **Local Network Access** permission. Colota requests this automatically when you test a local endpoint.
+Starting with Android 17, connecting to local/private network addresses requires the **Local Network Access** permission. Hutts Tracking requests this automatically when you test a local endpoint.
 
 On some Android 16 devices, this may already be enforced via security patches using the **Nearby Wi-Fi Devices** permission instead.
 
 If sync to a local server stopped working after an Android update:
 
-1. Go to **Android Settings > Apps > Colota > Permissions**
+1. Go to **Android Settings > Apps > Hutts Tracking > Permissions**
 2. On Android 17+: Grant the **Local network access** permission
 3. On Android 16: Grant the **Nearby devices** permission
 4. Use the **Test Connection** button to verify
@@ -143,7 +143,7 @@ To change: **Settings > Advanced Settings > Network Settings > Sync Only On**.
 - Check that the selected directory still exists and is accessible
 - Transient errors (I/O failures) retry up to 3 times automatically; permanent errors (invalid config, directory issues) fail immediately without retrying
 - If old exports seem to disappear, check the **File Retention** setting - by default only the last 10 files are kept
-- Check the `Colota.AutoExportAlarm`, `Colota.AutoExportScheduler` and `Colota.AutoExportWorker` log tags in native logs for details
+- Check the `HuttsTracking.AutoExportAlarm`, `HuttsTracking.AutoExportScheduler` and `HuttsTracking.AutoExportWorker` log tags in native logs for details
 
 ## Database growing too large
 

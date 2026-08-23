@@ -108,7 +108,7 @@ function fallbackDisclosure(): Promise<boolean> {
   return new Promise((resolve) => {
     Alert.alert(
       "Location Data Collection",
-      "Colota collects location data to enable GPS tracking and sending your position to your configured server, even when the app is closed or not in use.\n\nNo data is shared with third parties.",
+      "Hutts Tracking collects location data to enable GPS tracking and sending your position to your configured server, even when the app is closed or not in use.\n\nNo data is shared with third parties.",
       [
         { text: "Not Now", style: "cancel", onPress: () => resolve(false) },
         { text: "Agree", onPress: () => resolve(true) }
@@ -231,7 +231,7 @@ function fallbackLocalNetworkDisclosure(): Promise<boolean> {
   return new Promise((resolve) => {
     Alert.alert(
       "Local Network Access",
-      "Your server is on the local network. Colota needs local network access permission to reach it.",
+      "Your server is on the local network. Hutts Tracking needs local network access permission to reach it.",
       [
         { text: "Not Now", style: "cancel", onPress: () => resolve(false) },
         { text: "Continue", onPress: () => resolve(true) }

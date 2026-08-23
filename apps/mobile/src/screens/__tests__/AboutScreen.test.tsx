@@ -124,7 +124,7 @@ describe("AboutScreen", () => {
   it("renders app title and version", () => {
     const { getByText } = renderScreen()
 
-    expect(getByText("Colota")).toBeTruthy()
+    expect(getByText("Hutts Tracking")).toBeTruthy()
     expect(getByText("Version 1.3.0")).toBeTruthy()
   })
 

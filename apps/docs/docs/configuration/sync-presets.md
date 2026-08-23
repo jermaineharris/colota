@@ -17,7 +17,7 @@ Select a preset in **Settings → Tracking & Sync** or choose **Custom** to conf
 
 ## Sync Condition
 
-Controls when Colota uploads locations. Locations are always recorded and queued locally regardless of this setting.
+Controls when Hutts Tracking uploads locations. Locations are always recorded and queued locally regardless of this setting.
 
 | Option            | Behavior                                               |
 | ----------------- | ------------------------------------------------------ |

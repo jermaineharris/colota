@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Data Import
 
-Merge location history from external files into your Colota database. Data Import is **additive**: existing locations are preserved and duplicates are skipped. Use this to recover from a Colota export, migrate from Google Timeline, or pull historical data from another tracker
+Merge location history from external files into your Hutts Tracking database. Data Import is **additive**: existing locations are preserved and duplicates are skipped. Use this to recover from a Hutts Tracking export, migrate from Google Timeline, or pull historical data from another tracker
 
 :::warning[Back up before a large import]
 
@@ -74,13 +74,13 @@ If you've configured an optional sync backend in **Settings → Connection**, th
 
 ### Import
 
-- Rows are written into Colota with `sent=1` - flagged as already replicated.
+- Rows are written into Hutts Tracking with `sent=1` - flagged as already replicated.
 - **The sync engine will not push them to your backend.**
-- Use this when the backend already holds these points - for example, you're re-importing your own Colota export, or repopulating local history after a "Clear Sent History".
+- Use this when the backend already holds these points - for example, you're re-importing your own Hutts Tracking export, or repopulating local history after a "Clear Sent History".
 
 ### Import + Queue for Sync
 
-- Rows are written into Colota with `sent=0` and enqueued for upload.
+- Rows are written into Hutts Tracking with `sent=0` and enqueued for upload.
 - The next sync cycle replicates them to your configured backend.
 - Use this when the points are new to your backend - for example, you imported a Google Timeline archive and want the backend copy to mirror it too.
 
@@ -88,7 +88,7 @@ This button is **only shown when a sync endpoint is configured and offline mode 
 
 :::warning[Queueing fans the points out to your backend - irreversible there]
 
-Once queued, the rows are uploaded as soon as the next sync runs. Removing them from the backend afterwards isn't something Colota can do for you. If you're importing a multi-year archive (100k+ points), expect the queue to fire that many upload requests against your backend; make sure it can handle the load.
+Once queued, the rows are uploaded as soon as the next sync runs. Removing them from the backend afterwards isn't something Hutts Tracking can do for you. If you're importing a multi-year archive (100k+ points), expect the queue to fire that many upload requests against your backend; make sure it can handle the load.
 
 :::
 

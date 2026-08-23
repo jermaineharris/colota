@@ -7,7 +7,7 @@ sidebar_position: 8
 ## Reporting Issues
 
 1. Check if the issue already exists in [GitHub Issues](https://github.com/dietrichmax/colota/issues)
-2. Provide device info (model, Android version, Colota version)
+2. Provide device info (model, Android version, Hutts Tracking version)
 3. Include logs if possible: `adb logcat | grep Colota`
 4. Describe steps to reproduce
 
@@ -28,7 +28,7 @@ See the [Development Guide](/docs/development/architecture) for architecture det
 - **Kotlin** for native Android modules
 - Follow existing patterns in the codebase
 - Use `logger` instead of `console.log` - import from `src/utils/logger`
-- Use `AppLogger` instead of `android.util.Log` in Kotlin code - import from `com.Colota.util.AppLogger`
+- Use `AppLogger` instead of `android.util.Log` in Kotlin code - import from `com.huttsmedia.huttstracking.util.AppLogger`
 - Test both build flavors if your changes touch native code:
   ```bash
   cd apps/mobile/android
@@ -36,9 +36,9 @@ See the [Development Guide](/docs/development/architecture) for architecture det
   ```
 - Run before submitting:
   ```bash
-  npm run lint -w @colota/mobile
-  npx -w @colota/mobile tsc --noEmit
-  npm test -w @colota/mobile
+  npm run lint -w @hutts-tracking/mobile
+  npx -w @hutts-tracking/mobile tsc --noEmit
+  npm test -w @hutts-tracking/mobile
   cd apps/mobile/android && ./gradlew testGmsDebugUnitTest testFossDebugUnitTest
   ```
 

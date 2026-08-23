@@ -61,7 +61,7 @@ export function ExportLocationsScreen({}: ScreenProps) {
         await NativeLocationService.shareFile(
           result.filePath,
           result.mimeType,
-          `Colota Export - ${result.rowCount} locations`
+          `Hutts Tracking Export - ${result.rowCount} locations`
         )
       } catch (shareError: any) {
         logger.warn("[ExportLocationsScreen] Share error:", shareError)

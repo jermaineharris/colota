@@ -100,7 +100,7 @@ Native-only modules in `backup/` package. The on-disk format is documented in `B
 | `BackupBuilder` | Snapshots the SQLite database via `DatabaseHelper.snapshotTo` (uses `VACUUM INTO` on API 30+, file-copy with WAL checkpoint as fallback), runs `quick_check`, extracts secrets via `SecureStorageHelper.exportPlaintextForBackup()`, deflates everything into a zip, then streams it through `BackupCrypto.encrypt`. Picks Argon2 memory by `ActivityManager.isLowRamDevice` (32 MiB / 64 MiB). |
 | `BackupRestorer` | Decrypts the file via a `PipedInputStream` into a `ZipInputStream`, extracts entries to a temp dir with bounded reads (zip-bomb defense), validates the manifest schema version, runs `PRAGMA integrity_check` on the candidate DB, calls `DatabaseHelper.migrateCandidate` to run any required migrations on the candidate, then atomically swaps the live DB via `DatabaseHelper.replaceLiveDatabase`, then re-imports secrets. A failed secrets commit is surfaced as `SECRETS_PARTIAL` so the UI can prompt the user to re-enter credentials. |
 | `BackupForegroundService` | Notification-only foreground service shown during long backups/restores. Uses `FOREGROUND_SERVICE_TYPE_DATA_SYNC`. Holds no work itself - the actual encryption stays in `BackupServiceModule`'s coroutine so the password `CharArray` lives only on the heap, not in service state. |
-| `BackupOrphanCleanup` | Singleton kicked off from `MainApplication.onCreate` on a daemon thread. Sweeps `cacheDir/backup_temp`, `cacheDir/restore_temp`, `cacheDir/pending_backup.colota`, and `<dbDir>/Colota.db.incoming` left behind by a process death mid-operation. Exposes a `CompletableDeferred` so `BackupServiceModule` can await completion before claiming the operation mutex. |
+| `BackupOrphanCleanup` | Singleton kicked off from `MainApplication.onCreate` on a daemon thread. Sweeps `cacheDir/backup_temp`, `cacheDir/restore_temp`, `cacheDir/pending_backup.colota`, and `<dbDir>/HuttsTracking.db.incoming` left behind by a process death mid-operation. Exposes a `CompletableDeferred` so `BackupServiceModule` can await completion before claiming the operation mutex. |
 | `PasswordStrength` | Mirror of the JS-side `passwordStrength.ts`. Enforces the 12-character floor and ~50-bit entropy floor; sequential runs and `<4` distinct chars cap the score. |
 
 ### ImportServiceModule
@@ -286,14 +286,14 @@ For backups, two `internal` methods support the export/import flow without expos
 | `ServiceConfig` | Centralized configuration data class |
 | `TimedCache` | Generic TTL cache used for queue count, device info, profiles, and network state |
 | `BuildConfigModule` | Exposes build constants (SDK versions, app version) to JS |
-| `AppLogger` | Centralized logger - always active, all tags prefixed with `Colota.` for logcat filtering |
+| `AppLogger` | Centralized logger - always active, all tags prefixed with `HuttsTracking.` for logcat filtering |
 | `AutoExportWorker` | WorkManager `CoroutineWorker` enqueued by `AutoExportAlarmReceiver` - performs the export (chunked writes, foreground service, retries, retention cleanup) and re-arms the next alarm in `finally` |
 | `AutoExportAlarmReceiver` | Broadcast receiver fired by AlarmManager at the configured time - hands off to `AutoExportWorker` because the receiver's 10s budget can't run an export |
 | `AutoExportScheduler` | Arms `AlarmManager.setAndAllowWhileIdle` for the next configured wall-clock time. Called on enable, after each worker run, after schedule edits and on boot |
 | `AutoExportConfig` | Typed data class wrapping auto-export settings (interval, time-of-day, weekday, day-of-month, enabledAt) from the SQLite settings table with validation, `isExportDue()` and `nextExportTimestamp()` |
 | `ExportConverters` | Native CSV/GeoJSON/GPX/KML serialization for both "Export all" (flat, streamed via `exportToFile`) and per-trip / multi-select export (trip-segmented via `convertTrips`, reached through the `exportTripsToFile` bridge). In-memory, streaming, and file-based interfaces |
 | `ShortcutHandlerActivity` | Transparent activity handling app shortcut intents (start/stop tracking) without UI. Delegates to the shared `TrackingControl` helper |
-| `TrackingControlReceiver` | Exported broadcast receiver for automation apps - `com.Colota.action.START_TRACKING` / `STOP_TRACKING` start or stop tracking from saved settings. Delegates to `TrackingControl` |
+| `TrackingControlReceiver` | Exported broadcast receiver for automation apps - `com.huttsmedia.huttstracking.action.START_TRACKING` / `STOP_TRACKING` start or stop tracking from saved settings. Delegates to `TrackingControl` |
 | `TrackingControl` | Shared start/stop tracking actions used by both triggers above: reads config from DB via `ServiceConfig.fromDatabase()`, starts the foreground service and fires the started event; stop is routed through the service so `stopForegroundServiceWithReason` runs |
 
 ## React Native Layer
@@ -323,8 +323,8 @@ For backups, two `internal` methods support the export/import flow without expos
 | `OfflineMapsScreen` | Download and manage offline map areas - interactive bounding box picker, size estimate, progress tracking, and area deletion |
 | `DataManagementScreen` | Clear sent history, delete old data, vacuum database, sync controls |
 | `BackupRestoreScreen` | Create or restore a password-encrypted `.colota` archive of all data, with strength meter and no-recovery confirmation |
-| `SetupImportScreen` | Confirmation screen for `colota://setup` deep link imports |
-| `ShareSetupScreen` | Bundles selected config categories into a `colota://setup` link to share; credentials opt-in |
+| `SetupImportScreen` | Confirmation screen for `huttstracking://setup` deep link imports |
+| `ShareSetupScreen` | Bundles selected config categories into a `huttstracking://setup` link to share; credentials opt-in |
 | `ActivityLogScreen` | In-app log viewer with level filtering, search, and export |
 | `AboutScreen` | App version, device info, links to repository and privacy policy |
 
@@ -429,4 +429,4 @@ User taps "Start" → TrackingProvider.startTracking()
 - **Typography** - `fontFamily` ("Inter") and `fontSizes` scale
 - **Types** - `ThemeColors` interface and `ThemeMode` type
 
-Both the mobile app and docs site import from `@colota/shared`. The package compiles TypeScript to `dist/` via `tsc` so Docusaurus can consume it without a custom webpack loader.
+Both the mobile app and docs site import from `@hutts-tracking/shared`. The package compiles TypeScript to `dist/` via `tsc` so Docusaurus can consume it without a custom webpack loader.

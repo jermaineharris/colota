@@ -12,19 +12,19 @@
 -keep class com.facebook.react.modules.core.DeviceEventManagerModule$RCTDeviceEventEmitter { *; }
 
 # Keep classes accessed via React Native bridge and reflection
--keep class com.Colota.bridge.** { *; }
--keep class com.Colota.MainApplication { *; }
--keep class com.Colota.MainActivity { *; }
+-keep class com.huttsmedia.huttstracking.bridge.** { *; }
+-keep class com.huttsmedia.huttstracking.MainApplication { *; }
+-keep class com.huttsmedia.huttstracking.MainActivity { *; }
 
 # Keep Google Play Services Location (only present in gms flavor)
 -keep class com.google.android.gms.location.** { *; }
 -dontwarn com.google.android.gms.**
 
 # Keep location provider abstraction
--keep class com.Colota.location.** { *; }
+-keep class com.huttsmedia.huttstracking.location.** { *; }
 
 # Keep WorkManager worker (instantiated by class name)
--keep class com.Colota.export.AutoExportWorker { *; }
+-keep class com.huttsmedia.huttstracking.export.AutoExportWorker { *; }
 
 # Standard optimization settings
 -dontwarn com.facebook.react.**

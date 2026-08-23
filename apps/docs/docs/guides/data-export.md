@@ -76,9 +76,9 @@ Retention counts the files your **file name template** matches, which is what de
 | Template            | Scope                                                                                |
 | ------------------- | ------------------------------------------------------------------------------------ |
 | Contains `{device}` | Keeps N exports **per device model**. Other models sharing the folder are untouched. |
-| No `{device}`       | Keeps N exports **per folder**, counting every Colota export in it.                  |
+| No `{device}`       | Keeps N exports **per folder**, counting every Hutts Tracking export in it.                  |
 
-Changing the template also means files exported under the previous one are no longer managed, since retention only recognises names the current template could have produced. Delete those once by hand. The one exception is switching away from the default `colota_export_{date}_{time}`, whose files stay managed unless the new template contains `{device}`.
+Changing the template also means files exported under the previous one are no longer managed, since retention only recognises names the current template could have produced. Delete those once by hand. The one exception is switching away from the default `huttstracking_export_{date}_{time}`, whose files stay managed unless the new template contains `{device}`.
 
 :::warning[Several devices, one folder]
 
@@ -111,7 +111,7 @@ If several devices export into the same folder and none of the templates include
 
 ### File naming
 
-Auto-export files are named from a template you set in **File Name**. The default is `colota_export_{date}_{time}`, which produces the same names as before this setting existed, for example `colota_export_2026-05-20_0815.geojson`.
+Auto-export files are named from a template you set in **File Name**. The default is `huttstracking_export_{date}_{time}`, which produces the same names as before this setting existed, for example `huttstracking_export_2026-05-20_0815.geojson`.
 
 | Placeholder | Expands to                       | Example      |
 | ----------- | -------------------------------- | ------------ |
@@ -122,22 +122,22 @@ Auto-export files are named from a template you set in **File Name**. The defaul
 Anything else in the template is used literally, so a prefix or suffix just gets typed in:
 
 ```
-{device}_colota_export-{date}_{time}
+{device}_huttstracking_export-{date}_{time}
 ```
 
-produces `Pixel7_colota_export-2026-05-20_0815.gpx`. The settings screen shows a live preview of the name that will be written.
+produces `Pixel7_huttstracking_export-2026-05-20_0815.gpx`. The settings screen shows a live preview of the name that will be written.
 
 Every template must contain three things, and the field rejects it otherwise:
 
-- **`colota_export`** - the marker that lets Colota recognise its own files when enforcing retention. Without it, cleanup could not tell your files from its own. Matching is **case-sensitive**, so `Colota_Export` is not accepted.
-- **`{date}` and `{time}`** - together they keep each export uniquely named and let Colota order files chronologically no matter where the timestamp sits in the name.
+- **`huttstracking_export`** - the marker that lets Hutts Tracking recognise its own files when enforcing retention. Without it, cleanup could not tell your files from its own. Matching is **case-sensitive**, so `Colota_Export` is not accepted.
+- **`{date}` and `{time}`** - together they keep each export uniquely named and let Hutts Tracking order files chronologically no matter where the timestamp sits in the name.
 
 Other notes:
 
 - The file extension is appended automatically from the selected format. Do not put it in the template.
 - Characters that filesystems or sync clients reject (`\ / : * ? " < > |`) are removed, as are leading and trailing dots and spaces.
 - Templates longer than 100 characters are rejected, and `{device}` is shortened to 32 characters, so the result stays inside the filesystem's name limit.
-- If a file of the same name already exists, Android adds a counter (`… (1).gpx`). Colota still recognises those as its own.
+- If a file of the same name already exists, Android adds a counter (`… (1).gpx`). Hutts Tracking still recognises those as its own.
 
 Manual **Export Locations** and trip exports are unaffected. Those go through the Android share sheet, where you name the file yourself.
 

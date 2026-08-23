@@ -97,7 +97,7 @@ export async function exportLogs(
   buildConfig: { VERSION_NAME: string; VERSION_CODE: number } | null,
   deviceInfo: { systemVersion: string; apiLevel: string | number; brand: string; model: string } | null
 ): Promise<void> {
-  const lines: string[] = ["=== Colota Debug Log Export ===", `Exported: ${new Date().toISOString()}`, ""]
+  const lines: string[] = ["=== Hutts Tracking Debug Log Export ===", `Exported: ${new Date().toISOString()}`, ""]
 
   if (buildConfig) {
     lines.push("--- App Info ---", `Version: ${buildConfig.VERSION_NAME} (${buildConfig.VERSION_CODE})`, "")
@@ -118,7 +118,7 @@ export async function exportLogs(
     lines.push(entry.raw)
   }
 
-  const fileName = `colota_logs_${Date.now()}.txt`
+  const fileName = `huttstracking_logs_${Date.now()}.txt`
   const filePath = await NativeLocationService.writeFile(fileName, lines.join("\n"))
-  await NativeLocationService.shareFile(filePath, "text/plain", "Colota Debug Logs")
+  await NativeLocationService.shareFile(filePath, "text/plain", "Hutts Tracking Debug Logs")
 }

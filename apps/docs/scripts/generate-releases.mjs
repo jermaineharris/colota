@@ -88,7 +88,7 @@ const sections = entries.map((entry, i) => {
 const page = [
   `---`,
   `title: Releases`,
-  `description: Release highlights for every published version of Colota.`,
+  `description: Release highlights for every published version of Hutts Tracking.`,
   `---`,
   ``,
   `# Releases`,

@@ -14,7 +14,7 @@ export interface ScreenProps {
   navigation: NativeStackNavigationProp<RootStackParamList>
 }
 
-export type { ThemeColors, ThemeMode } from "@colota/shared"
+export type { ThemeColors, ThemeMode } from "@hutts-tracking/shared"
 
 // ============================================================================
 // LOCATION DATA
@@ -144,7 +144,7 @@ export const API_TEMPLATES: Record<Exclude<ApiTemplateName, "custom">, ApiTempla
   geopulse: {
     name: "geopulse",
     label: "GeoPulse",
-    description: "Native Colota format for GeoPulse",
+    description: "Native Hutts Tracking format for GeoPulse",
     fieldMap: {
       lat: "lat",
       lon: "lon",
@@ -173,7 +173,7 @@ export const API_TEMPLATES: Record<Exclude<ApiTemplateName, "custom">, ApiTempla
       tst: "tst",
       bear: "bear"
     },
-    customFields: [{ key: "device_id", value: "colota" }]
+    customFields: [{ key: "device_id", value: "huttstracking" }]
   },
   owntracks: {
     name: "owntracks",
@@ -210,7 +210,7 @@ export const API_TEMPLATES: Record<Exclude<ApiTemplateName, "custom">, ApiTempla
       tst: "timestamp",
       bear: "bearing"
     },
-    customFields: [{ key: "useragent", value: "Colota" }]
+    customFields: [{ key: "useragent", value: "Hutts Tracking" }]
   },
   reitti: {
     name: "reitti",
@@ -245,7 +245,7 @@ export const API_TEMPLATES: Record<Exclude<ApiTemplateName, "custom">, ApiTempla
       tst: "timestamp",
       bear: "bearing"
     },
-    customFields: [{ key: "id", value: "colota" }]
+    customFields: [{ key: "id", value: "huttstracking" }]
   }
 }
 
@@ -330,17 +330,18 @@ export interface Settings {
 }
 
 export const DEFAULT_SETTINGS: Settings = {
-  interval: TRACKING_PRESETS.instant.interval,
-  distance: TRACKING_PRESETS.instant.distance,
+  // Balanced avoids Instant's 5s/0m GPS-jitter spam while sitting still.
+  interval: TRACKING_PRESETS.balanced.interval,
+  distance: TRACKING_PRESETS.balanced.distance,
   endpoint: "",
   fieldMap: DEFAULT_FIELD_MAP,
   customFields: [],
   apiTemplate: "custom",
-  syncInterval: TRACKING_PRESETS.instant.syncInterval,
-  retryInterval: TRACKING_PRESETS.instant.retryInterval,
-  filterInaccurateLocations: false,
+  syncInterval: TRACKING_PRESETS.balanced.syncInterval,
+  retryInterval: TRACKING_PRESETS.balanced.retryInterval,
+  filterInaccurateLocations: true,
   accuracyThreshold: 50,
-  syncPreset: "instant",
+  syncPreset: "balanced",
   isOfflineMode: false,
   syncCondition: "any",
   syncSsid: "",

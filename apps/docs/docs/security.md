@@ -4,7 +4,7 @@ sidebar_position: 12
 
 # Security
 
-An overview of how Colota handles your data at rest, in transit and on-device.
+An overview of how Hutts Tracking handles your data at rest, in transit and on-device.
 
 ## Data in Transit
 
@@ -15,13 +15,13 @@ HTTPS is enforced for all public server endpoints. HTTP is only allowed for priv
 Colota's HTTPS chain validation accepts two trust sources, either of which is sufficient:
 
 1. **System CAs** that ship with Android - the normal public web (Let's Encrypt, DigiCert, etc.)
-2. **In-app imported CA** added via Settings -> Authentication & Headers -> Client Certificate (mTLS) -> Trusted Server CA. One slot, trusted only by Colota.
+2. **In-app imported CA** added via Settings -> Authentication & Headers -> Client Certificate (mTLS) -> Trusted Server CA. One slot, trusted only by Hutts Tracking.
 
 User-installed device CAs (from Android Settings -> Encryption & credentials) are not honored, so malware or a coerced profile that plants a CA in the device store can't intercept Colota's sync. Self-hosted users running a private CA should import it via the in-app path.
 
 ### Mutual TLS (mTLS)
 
-For servers that require a client certificate at the TLS handshake (e.g. nginx `ssl_verify_client`, Traefik, Cloudflare Access), Colota supports importing a PKCS12 (`.p12` / `.pfx`) bundle. The private key is stored in the OS keystore and the password you enter during import is not saved. See the [mTLS guide](./configuration/mtls) for setup details.
+For servers that require a client certificate at the TLS handshake (e.g. nginx `ssl_verify_client`, Traefik, Cloudflare Access), Hutts Tracking supports importing a PKCS12 (`.p12` / `.pfx`) bundle. The private key is stored in the OS keystore and the password you enter during import is not saved. See the [mTLS guide](./configuration/mtls) for setup details.
 
 ## Credentials at Rest
 
@@ -43,13 +43,13 @@ Colota can produce a single password-encrypted archive of your full dataset (loc
 - **Key derivation**: Argon2id with 64 MiB memory, 3 iterations and 1 lane on standard devices; 32 MiB on devices flagged as low-RAM by Android. The salt is 32 bytes from `SecureRandom`, fresh per backup.
 - **Password floor**: 12 characters, with a strength meter that enforces ~50 bits of entropy (passwords with sequential runs or fewer than 4 distinct characters are capped).
 - **No recovery**: forgotten password means an unreadable file. There is no escrow, recovery code or developer override.
-- **Credential handling**: the auth credentials Colota uses to talk to your tracking endpoint (Basic Auth username/password, Bearer token, custom HTTP headers) are extracted from `EncryptedSharedPreferences` and written as plaintext **inside** the encrypted container. They are protected by the backup password, not by the device's hardware-backed key. The blast radius equals whatever your server lets those credentials do - a credential limited to writing locations caps damage at fake location posts; a credential tied to a user with broader privileges, or any token with more scope than the endpoint actually needs, gives the attacker that same scope. Configure Colota with the minimum permission its endpoint requires. On restore the credentials are re-wrapped under the destination device's key.
+- **Credential handling**: the auth credentials Hutts Tracking uses to talk to your tracking endpoint (Basic Auth username/password, Bearer token, custom HTTP headers) are extracted from `EncryptedSharedPreferences` and written as plaintext **inside** the encrypted container. They are protected by the backup password, not by the device's hardware-backed key. The blast radius equals whatever your server lets those credentials do - a credential limited to writing locations caps damage at fake location posts; a credential tied to a user with broader privileges, or any token with more scope than the endpoint actually needs, gives the attacker that same scope. Configure Hutts Tracking with the minimum permission its endpoint requires. On restore the credentials are re-wrapped under the destination device's key.
 - **mTLS**: the user-imported Trusted Server CA (public cert bytes) is included so a self-signed server stays reachable after restore. The mTLS **client certificate is not backed up** by design - the private key lives in the Android KeyChain (often hardware-backed) and cannot leave the source device. Re-import the `.p12` on the destination device after restore.
 - **Format independence**: the on-disk format is FOSS (BouncyCastle, no Tink/Google dependency) and stays stable independently of the in-app `EncryptedSharedPreferences` implementation.
 
 The format is fully documented in [`BackupFormat.kt`](https://github.com/dietrichmax/colota/blob/main/apps/mobile/android/app/src/main/java/com/colota/backup/BackupFormat.kt).
 
-## What Colota Does Not Do
+## What Hutts Tracking Does Not Do
 
 - No analytics, telemetry or crash reporting
 - No advertising SDKs or tracking pixels

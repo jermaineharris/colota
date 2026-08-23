@@ -16,7 +16,7 @@ sidebar_position: 3
 git clone https://github.com/dietrichmax/colota.git
 cd colota
 npm ci
-npm run build -w @colota/shared
+npm run build -w @hutts-tracking/shared
 cd apps/mobile/android
 ```
 

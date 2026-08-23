@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-Only the latest release receives security fixes. Always update to the newest version available on [Google Play](https://play.google.com/store/apps/details?id=com.Colota), [F-Droid](https://f-droid.org/packages/com.Colota/), [IzzyOnDroid](https://apt.izzysoft.de/packages/com.Colota/) or [GitHub Releases](https://github.com/dietrichmax/colota/releases).
+Only the latest release receives security fixes. Always update to the newest version available on [Google Play](https://play.google.com/store/apps/details?id=com.huttsmedia.huttstracking), [F-Droid](https://f-droid.org/packages/com.huttsmedia.huttstracking/), [IzzyOnDroid](https://apt.izzysoft.de/packages/com.huttsmedia.huttstracking/) or [GitHub Releases](https://github.com/dietrichmax/colota/releases).
 
 ## Reporting a Vulnerability
 

@@ -34,7 +34,7 @@ Add arbitrary HTTP headers for proxies, API gateways, or services like Cloudflar
 
 ## Testing with curl
 
-Replicate what Colota sends using curl to test your server:
+Replicate what Hutts Tracking sends using curl to test your server:
 
 **Basic Auth:**
 

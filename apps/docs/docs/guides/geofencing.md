@@ -47,7 +47,7 @@ Stops GPS after the device has been still for the configured time (default 1 min
 
 Records a point at the geofence center at a set interval while paused inside the zone, as a synthetic fix that does not wake GPS. Useful as a proof-of-presence signal so your backend knows the device is still there.
 
-The point is always saved on the device, including in offline mode and when the server is unreachable. Sending it is separate: it goes out under your normal sync rules, so a Wi-Fi-only or SSID condition still governs the upload while the stay is recorded either way. The first point is recorded on zone entry, then one per interval. Minimum 1 minute, default 15. Treat the interval as a minimum rather than a schedule: Colota uses an inexact alarm so it does not need the exact-alarm permission, and Android delivers those late.
+The point is always saved on the device, including in offline mode and when the server is unreachable. Sending it is separate: it goes out under your normal sync rules, so a Wi-Fi-only or SSID condition still governs the upload while the stay is recorded either way. The first point is recorded on zone entry, then one per interval. Minimum 1 minute, default 15. Treat the interval as a minimum rather than a schedule: Hutts Tracking uses an inexact alarm so it does not need the exact-alarm permission, and Android delivers those late.
 
 ### Combined behavior
 
@@ -65,10 +65,10 @@ You can share all your geofences with another device or another user via a setup
 
 1. Open the **Geofences** screen
 2. Tap the share icon next to "Active Geofences"
-3. The system share sheet opens with a `colota://setup?config=...` link
+3. The system share sheet opens with a `huttstracking://setup?config=...` link
 4. Send the link through any messenger, email or as a QR code
 
-When the recipient opens the link, Colota shows the import confirmation screen listing every incoming zone. By default, tapping **Apply Configuration** appends the zones to the recipient's existing list. A "Replace zones with the same name" toggle on the confirmation screen swaps incoming zones for any existing zones whose names match - the original zones are deleted before the new ones are created.
+When the recipient opens the link, Hutts Tracking shows the import confirmation screen listing every incoming zone. By default, tapping **Apply Configuration** appends the zones to the recipient's existing list. A "Replace zones with the same name" toggle on the confirmation screen swaps incoming zones for any existing zones whose names match - the original zones are deleted before the new ones are created.
 
 The share button is all-or-nothing - every zone in the list is included. The `id`, `createdAt` and `enabled` fields are stripped, so imported zones always start enabled and get fresh database entries on the recipient's device.
 
@@ -79,16 +79,16 @@ See the [Deep Link Setup](deep-link-setup.md#geofences) guide for the full paylo
 ## How It Works
 
 - Zone detection uses the Haversine formula (1-2ms per check)
-- When entering a pause zone, Colota keeps recording for 3.5× your tracking interval before pausing - this logs several real arrival points near the zone boundary, which backends like GeoPulse need to confirm a trip has ended
+- When entering a pause zone, Hutts Tracking keeps recording for 3.5× your tracking interval before pausing - this logs several real arrival points near the zone boundary, which backends like GeoPulse need to confirm a trip has ended
 - The notification shows "Paused: [Zone Name]" once the pause takes effect
 - By default, GPS continues running inside the zone to detect when you leave. If **WiFi pause** or **motionless pause** is enabled, GPS stops entirely inside the zone and zone exit is detected when GPS resumes
 - If you leave before the entry delay completes, the delay is cancelled and tracking continues uninterrupted
 - Stationary detection is suspended inside zones so GPS is never stopped by the stationary timer while zone exit needs to be detected
 - When exiting the zone, tracking automatically resumes
-- If GPS goes quiet while paused (for example, indoors for a long stretch), Colota periodically requests a fresh position to check whether you have left
+- If GPS goes quiet while paused (for example, indoors for a long stretch), Hutts Tracking periodically requests a fresh position to check whether you have left
 - Zone checks happen every location update with minimal overhead
 - You can create unlimited geofence zones
 
 ## Anchor Points
 
-When you exit a pause zone, Colota saves a synthetic location at the geofence center. This gives your new trip a clean start point rather than somewhere mid-road where GPS first locks in. Anchor points report accuracy 0 so they pass any downstream quality filter and are recognizable as synthetic in backend data, and are timestamped 1 second before the first real GPS fix after leaving the zone, ensuring correct chronological order.
+When you exit a pause zone, Hutts Tracking saves a synthetic location at the geofence center. This gives your new trip a clean start point rather than somewhere mid-road where GPS first locks in. Anchor points report accuracy 0 so they pass any downstream quality filter and are recognizable as synthetic in backend data, and are timestamped 1 second before the first real GPS fix after leaving the zone, ensuring correct chronological order.

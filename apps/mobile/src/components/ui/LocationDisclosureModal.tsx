@@ -21,7 +21,7 @@ export function LocationDisclosureModal() {
       icon={<MapPin size={28} color={colors.primary} />}
       title="Location Data Collection"
       paragraphs={[
-        "Colota collects location data to enable GPS tracking and sending your position to your configured server, even when the app is closed or not in use.",
+        "Hutts Tracking collects location data to enable GPS tracking and sending your position to your configured server, even when the app is closed or not in use.",
         "This data is sent only to the server you set up. No data is shared with third parties."
       ]}
       confirmLabel="Agree"

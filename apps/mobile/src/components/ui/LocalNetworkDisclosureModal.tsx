@@ -21,7 +21,7 @@ export function LocalNetworkDisclosureModal() {
       icon={<Wifi size={28} color={colors.primary} />}
       title="Local Network Access"
       paragraphs={[
-        "Your server is on the local network. Colota needs local network access permission to reach it.",
+        "Your server is on the local network. Hutts Tracking needs local network access permission to reach it.",
         "This permission is only used to connect to your self-hosted server. No device scanning or discovery is performed."
       ]}
       confirmLabel="Continue"

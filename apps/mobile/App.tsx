@@ -129,9 +129,9 @@ const SCREEN_CONFIG: readonly ScreenConfig[] = [
     title: "Profile Editor"
   },
   {
-    name: "About Colota",
+    name: "About Hutts Tracking",
     component: AboutScreen,
-    title: "About Colota"
+    title: "About Hutts Tracking"
   },
   {
     name: "Setup Import",
@@ -217,7 +217,7 @@ function AppNavigator() {
   )
   const linking = useMemo(
     () => ({
-      prefixes: ["colota://"],
+      prefixes: ["huttstracking://"],
       config: {
         screens: {
           "Setup Import": "setup"

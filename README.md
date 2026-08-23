@@ -2,9 +2,9 @@
   <img src="/packages/shared/logo/banner.svg" width="100%" alt="Colota Banner" />
 </p>
 
-# Colota - GPS Location Tracker
+# Hutts Tracking - GPS Location Tracker
 
-[![Version](https://img.shields.io/github/v/release/dietrichmax/colota)](https://github.com/dietrichmax/colota/releases) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) [![Google Play](https://img.shields.io/badge/Google_Play-Download-green.svg?logo=google-play)](https://play.google.com/store/apps/details?id=com.Colota&hl=en-US) [![F-Droid Version](https://img.shields.io/f-droid/v/com.Colota)](https://f-droid.org/de/packages/com.Colota) [![IzzyOnDroid](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/com.Colota&label=IzzyOnDroid)](https://apt.izzysoft.de/fdroid/index/apk/com.Colota)
+[![Version](https://img.shields.io/github/v/release/dietrichmax/colota)](https://github.com/dietrichmax/colota/releases) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) [![Google Play](https://img.shields.io/badge/Google_Play-Download-green.svg?logo=google-play)](https://play.google.com/store/apps/details?id=com.huttsmedia.huttstracking&hl=en-US) [![F-Droid Version](https://img.shields.io/f-droid/v/com.huttsmedia.huttstracking)](https://f-droid.org/de/packages/com.huttsmedia.huttstracking) [![IzzyOnDroid](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/com.huttsmedia.huttstracking&label=IzzyOnDroid)](https://apt.izzysoft.de/fdroid/index/apk/com.huttsmedia.huttstracking)
 
 **Self-hosted GPS tracking app for Android.**
 
@@ -27,7 +27,7 @@ Colota sends your location to your own server over HTTP(S). It works offline, su
 - **Tracking Profiles** - Automatically adjust GPS interval, distance filter and sync settings based on conditions like charging, car mode or speed.
 - **Flexible Sync** - Instant, batch or offline modes. Restrict sync to Wi-Fi, a specific SSID or VPN.
 - **App Shortcuts** - Long-press the app icon to start or stop tracking directly from the home screen, compatible with automation apps like Tasker and Samsung Routines.
-- **Quick Setup** - Configure devices via `colota://setup` deep links or QR codes.
+- **Quick Setup** - Configure devices via `huttstracking://setup` deep links or QR codes.
 - **Authentication** - Basic Auth, Bearer Token or custom headers. Optional mutual TLS (mTLS) with a PKCS12 client certificate stored in Android Keystore.
 - **Dark Mode** - Full light and dark theme support.
 
@@ -65,10 +65,10 @@ Colota sends your location to your own server over HTTP(S). It works offline, su
 
 ## Quick Start
 
-1. Install from [Google Play](https://play.google.com/store/apps/details?id=com.Colota&hl=en-US), [F-Droid](https://f-droid.org/packages/com.Colota/), [IzzyOnDroid](https://apt.izzysoft.de/packages/com.Colota/) or download the APK from [GitHub Releases](https://github.com/dietrichmax/colota/releases)
+1. Install from [Google Play](https://play.google.com/store/apps/details?id=com.huttsmedia.huttstracking&hl=en-US), [F-Droid](https://f-droid.org/packages/com.huttsmedia.huttstracking/), [IzzyOnDroid](https://apt.izzysoft.de/packages/com.huttsmedia.huttstracking/) or download the APK from [GitHub Releases](https://github.com/dietrichmax/colota/releases)
 2. Grant location permissions (precise, all the time)
 3. Grant notification permission (optional; on Android 13+ refusing it hides the status notification)
-4. Disable battery optimization for Colota
+4. Disable battery optimization for Hutts Tracking
 5. Press **Start Tracking**
 
 For full setup, server configuration, and integration guides, see the [documentation](https://colota.app).
@@ -85,7 +85,7 @@ Full docs at **[colota.app](https://colota.app)** covers configuration, server i
 git clone https://github.com/dietrichmax/colota.git
 cd colota
 npm ci
-npm run build -w @colota/shared
+npm run build -w @hutts-tracking/shared
 cd apps/mobile/android
 ./gradlew assembleGmsRelease    # Google Play variant
 ./gradlew assembleFossRelease   # F-Droid variant (no Google Play Services)

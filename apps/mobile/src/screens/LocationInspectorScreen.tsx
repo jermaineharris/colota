@@ -211,7 +211,7 @@ export function LocationHistoryScreen({ navigation, route }: RootScreenProps<"Lo
           format,
           fileName
         )
-        await NativeLocationService.shareFile(filePath, EXPORT_FORMATS[format].mimeType, `Colota ${label} - ${dateStr}`)
+        await NativeLocationService.shareFile(filePath, EXPORT_FORMATS[format].mimeType, `Hutts Tracking ${label} - ${dateStr}`)
       } catch (error) {
         logger.error("[LocationHistory] Trip export failed:", error)
         showAlert("Export Failed", "Unable to export. Please try again.", "error")

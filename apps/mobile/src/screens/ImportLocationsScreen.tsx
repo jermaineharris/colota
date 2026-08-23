@@ -238,7 +238,7 @@ export function ImportLocationsScreen({}: ScreenProps) {
           <SectionTitle>Import from File</SectionTitle>
           <Card>
             <Text style={[styles.intro, { color: colors.textSecondary }]}>
-              Merge location history from external files into your Colota database. Duplicates are skipped
+              Merge location history from external files into your Hutts Tracking database. Duplicates are skipped
               automatically.
             </Text>
             <Text style={[styles.intro, { color: colors.textSecondary }]}>

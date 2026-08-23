@@ -1,5 +1,5 @@
 {
-  "name": "@colota/mobile",
+  "name": "@hutts-tracking/mobile",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -20,7 +20,7 @@
     "upload:playstore": "cd android && fastlane supply --track production --skip_upload_apk --skip_upload_aab"
   },
   "dependencies": {
-    "@colota/shared": "*",
+    "@hutts-tracking/shared": "*",
     "@maplibre/maplibre-react-native": "^11.3.0",
     "@react-navigation/native": "^7.2.5",
     "@react-navigation/native-stack": "^7.16.0",

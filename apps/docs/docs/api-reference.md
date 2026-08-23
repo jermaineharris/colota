@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # API Reference
 
-Reference for the HTTP requests Colota sends to your server.
+Reference for the HTTP requests Hutts Tracking sends to your server.
 
 ## Request
 
@@ -69,7 +69,7 @@ All field names are [customizable](/docs/configuration/field-mapping).
 
 ### Anchor Points
 
-When exiting a [pause zone](/docs/guides/geofencing#anchor-points), Colota sends a synthetic location at the geofence center. These payloads look like regular locations but have specific characteristics:
+When exiting a [pause zone](/docs/guides/geofencing#anchor-points), Hutts Tracking sends a synthetic location at the geofence center. These payloads look like regular locations but have specific characteristics:
 
 - `lat`/`lon` are the geofence center coordinates (not the actual GPS position)
 - `acc` is set to the geofence radius in meters
@@ -121,7 +121,7 @@ curl -X POST https://your-server.com/api/location \
 
 ```
 Status: 200–299
-Body: Any (ignored by Colota)
+Body: Any (ignored by Hutts Tracking)
 ```
 
 Your server only needs to return a 2xx status code. The response body is not read.
@@ -137,7 +137,7 @@ There is no distinction between 4xx and 5xx in retry behavior - all failures are
 
 ## Retry Strategy
 
-When consecutive sync attempts fail, Colota uses exponential backoff:
+When consecutive sync attempts fail, Hutts Tracking uses exponential backoff:
 
 ```
 Attempt 1: Immediate

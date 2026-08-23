@@ -86,7 +86,7 @@ export function WelcomeCard({
   return (
     <View style={styles.container}>
       <Card variant="outlined" style={{ borderColor: colors.primary }}>
-        <Text style={[styles.title, { color: colors.text }]}>Welcome to Colota</Text>
+        <Text style={[styles.title, { color: colors.text }]}>Welcome to Hutts Tracking</Text>
         <Text style={[styles.subtitle, { color: colors.textSecondary }]}>Get started by completing these steps:</Text>
 
         <View style={styles.checklist}>

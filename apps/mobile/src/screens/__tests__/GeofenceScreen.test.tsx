@@ -311,7 +311,7 @@ describe("GeofenceScreen", () => {
       })
     })
 
-    it("opens the share sheet with a colota://setup link on press", async () => {
+    it("opens the share sheet with a huttstracking://setup link on press", async () => {
       mockGetGeofences.mockResolvedValue(mockGeofences)
       const { getByTestId } = renderScreen()
 

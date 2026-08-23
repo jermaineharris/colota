@@ -2,7 +2,7 @@ import { themes as prismThemes } from "prism-react-renderer"
 import type { Config } from "@docusaurus/types"
 import type * as Preset from "@docusaurus/preset-classic"
 const config: Config = {
-  title: "Colota",
+  title: "Hutts Tracking",
   tagline: "Self-hosted GPS tracking for Android",
   favicon: "img/favicon.png",
 
@@ -59,9 +59,9 @@ const config: Config = {
       respectPrefersColorScheme: true
     },
     navbar: {
-      title: "Colota",
+      title: "Hutts Tracking",
       logo: {
-        alt: "Colota",
+        alt: "Hutts Tracking",
         src: "img/app-icon.png"
       },
       items: [
@@ -96,15 +96,15 @@ const config: Config = {
           items: [
             {
               label: "Google Play",
-              href: "https://play.google.com/store/apps/details?id=com.Colota&hl=en-US"
+              href: "https://play.google.com/store/apps/details?id=com.huttsmedia.huttstracking&hl=en-US"
             },
             {
               label: "F-Droid",
-              href: "https://f-droid.org/packages/com.Colota/"
+              href: "https://f-droid.org/packages/com.huttsmedia.huttstracking/"
             },
             {
               label: "IzzyOnDroid",
-              href: "https://apt.izzysoft.de/packages/com.Colota/"
+              href: "https://apt.izzysoft.de/packages/com.huttsmedia.huttstracking/"
             }
           ]
         },

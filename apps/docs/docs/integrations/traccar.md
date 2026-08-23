@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Traccar
 
-[Traccar](https://www.traccar.org/) is an open source GPS tracking platform. Colota supports two Traccar protocols:
+[Traccar](https://www.traccar.org/) is an open source GPS tracking platform. Hutts Tracking supports two Traccar protocols:
 
 - **OsmAnd (GET)** - sends location as HTTP GET query parameters. Works with all Traccar versions.
 - **Traccar JSON (POST)** - sends a structured JSON body. Requires Traccar 6.7.0+.
@@ -13,9 +13,23 @@ sidebar_position: 6
 
 1. **Install Traccar** - follow the [Traccar documentation](https://www.traccar.org/documentation/)
 2. **Enable the OsmAnd protocol** in Traccar - both GET and POST use port 5055 via the OsmAnd listener. In your `traccar.xml` config, ensure the OsmAnd port is active (it is by default on standard installs)
-3. **Create a device** in the Traccar web interface - the Identifier you enter must match what Colota sends (see below)
+3. **Create a device** in the Traccar web interface - the Identifier you enter must match what Hutts Tracking sends (see below)
 
-## Setup in Colota
+## Hutts private stack (garage-one)
+
+Internal Tailscale-only Traccar lives on **`hetzner-fleet-garage-one`**. Operator docs:
+
+- MCP: `GET /cursor/runbook/hutts-tracking-traccar`
+- Wiki: https://docs.huttsenterprises.com/infra/hutts-tracking-traccar
+
+| Setting | Value |
+|---------|--------|
+| Server URL | `http://100.117.121.99:5055/` |
+| Method | GET (OsmAnd) |
+| Custom field `id` | `huttstracking` |
+| Preset | **Balanced** (avoid Instant / 0m distance — GPS jitter floods points) |
+
+## Setup in Hutts Tracking
 
 1. Go to **Settings > API Settings**
 2. Select the **Traccar** template
@@ -31,14 +45,14 @@ sidebar_position: 6
 
 Traccar identifies devices by a unique identifier. Add a custom field with key `id` and set it to your Traccar device identifier - this is used for both GET and POST.
 
-| Method | Field sent to Traccar    | Source                                                        |
-| ------ | ------------------------ | ------------------------------------------------------------- |
-| GET    | `id` query parameter     | custom field `id`                                             |
-| POST   | `device_id` in JSON body | custom field `id` (or `device_id` if set, otherwise `colota`) |
+| Method | Field sent to Traccar    | Source                                                               |
+| ------ | ------------------------ | -------------------------------------------------------------------- |
+| GET    | `id` query parameter     | custom field `id`                                                    |
+| POST   | `device_id` in JSON body | custom field `id` (or `device_id` if set, otherwise `huttstracking`) |
 
 The current value is visible in the example payload on the API Settings screen.
 
-In Traccar, open **Settings > Devices**, create a new device, and set the **Identifier** to the same value Colota is sending.
+In Traccar, open **Settings > Devices**, create a new device, and set the **Identifier** to the same value Hutts Tracking is sending.
 
 ## Request Format
 
@@ -67,7 +81,7 @@ GET http://traccar.yourdomain.com:5055/?id=my-phone&lat=52.12345&lon=-2.12345&ac
       "is_charging": false
     }
   },
-  "device_id": "colota"
+  "device_id": "huttstracking"
 }
 ```
 

@@ -1,0 +1,18 @@
+---
+description: Hutts Tracking GPS app + Traccar on Hetzner garage-one HDD
+globs:
+alwaysApply: false
+---
+
+# Hutts Tracking + Traccar
+
+**Runbook:** `GET /cursor/runbook/hutts-tracking-traccar`  
+**Wiki:** https://docs.huttsenterprises.com/infra/hutts-tracking-traccar  
+**Gitea:** `infra/hutts-tracking`
+
+- App name **Hutts Tracking**, package `com.huttsmedia.huttstracking` (Colota fork, AGPLv3).
+- Backend is **Traccar on `hetzner-fleet-garage-one`** (HDD), Tailscale-only: UI `:8082`, OsmAnd `:5055`.
+- Phone URL: `http://100.117.121.99:5055/` · device id `huttstracking` · preset **Balanced** (not Instant).
+- Do **not** put Traccar on utility-one or the Asustor unless explicitly asked.
+- Do **not** confuse with Fleet Ops Mobile or Hutts Analytics mobile apps.
+- Admin password: `/root/.config/hutts-tracking-traccar.admin.pass` on garage-one only — never commit.

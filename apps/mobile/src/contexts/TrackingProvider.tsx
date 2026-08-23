@@ -84,7 +84,7 @@ export function parseRawSettings(allRaw: Record<string, string>): Settings {
 /**
  * Global state management for location tracking, device coordinates, and application settings.
  *
- * This context serves as the "Single Source of Truth" for the entire Colota application,
+ * This context serves as the "Single Source of Truth" for the entire Hutts Tracking application,
  * bridging the gap between the persistent SQLite storage on Android and the React Native UI.
  *
  * **Core Responsibilities:**

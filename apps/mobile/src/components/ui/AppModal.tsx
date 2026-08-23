@@ -8,7 +8,7 @@ import { Modal, View, Text, Pressable, StyleSheet, BackHandler } from "react-nat
 import { Info, AlertCircle, AlertTriangle, CheckCircle } from "lucide-react-native"
 import { useTheme } from "../../hooks/useTheme"
 import { fonts } from "../../styles/typography"
-import { fontSizes } from "@colota/shared"
+import { fontSizes } from "@hutts-tracking/shared"
 import { type ModalRequest, type AlertVariant, registerModalHandler } from "../../services/modalService"
 
 const VARIANT_ICONS = {

@@ -108,7 +108,7 @@ export const MAP_STYLE_URL_LIGHT = "https://maps.mxd.codes/styles/bright/style.j
 export const MAP_STYLE_URL_DARK = "https://maps.mxd.codes/styles/dark/style.json"
 
 // URLs
-export const REPO_URL = "https://github.com/dietrichmax/colota"
+export const REPO_URL = "https://git.huttsenterprises.com/infra/hutts-tracking"
 export const ISSUES_URL = `${REPO_URL}/issues`
 export const PRIVACY_POLICY_URL = "https://colota.app/privacy-policy"
 export const TILE_SERVER_DOCS_URL = "https://colota.app/docs/guides/tile-server"

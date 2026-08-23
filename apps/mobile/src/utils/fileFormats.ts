@@ -30,7 +30,7 @@ export const FILE_FORMATS: Record<ImportFormat, FileFormat> = {
     exportable: true,
     mimeType: "application/json",
     subtitle: "Geographic Data",
-    description: "Mapbox, Leaflet, QGIS. Best for backups - re-imports into Colota without losing data."
+    description: "Mapbox, Leaflet, QGIS. Best for backups - re-imports into Hutts Tracking without losing data."
   },
   google_timeline_legacy: {
     label: "Google Timeline (legacy)",

@@ -19,7 +19,7 @@ Use this when you want a full archive of your data, when you're moving to a new 
 | Auth credentials (Basic, Bearer, custom headers) |  |
 | mTLS Trusted Server CA (public cert bytes) |  |
 
-The auth credentials Colota uses to reach your tracking endpoint (Basic Auth, Bearer token, custom headers) are stored as plaintext inside the encrypted container - they are protected by the backup password, not by the device's hardware-backed key. The leaked credentials let an attacker do whatever your server lets those credentials do. If you configured Colota with a credential limited to writing location data, that's all an attacker gets. If you used a credential tied to a user with broader privileges, or any token with more scope than posting locations requires, the attacker inherits that scope. Configure Colota with the minimum permission its endpoint actually needs. On restore the credentials are rewrapped under the destination device's key.
+The auth credentials Hutts Tracking uses to reach your tracking endpoint (Basic Auth, Bearer token, custom headers) are stored as plaintext inside the encrypted container - they are protected by the backup password, not by the device's hardware-backed key. The leaked credentials let an attacker do whatever your server lets those credentials do. If you configured Hutts Tracking with a credential limited to writing location data, that's all an attacker gets. If you used a credential tied to a user with broader privileges, or any token with more scope than posting locations requires, the attacker inherits that scope. Configure Hutts Tracking with the minimum permission its endpoint actually needs. On restore the credentials are rewrapped under the destination device's key.
 
 ## Creating a Backup
 
@@ -91,8 +91,8 @@ Each file is authenticated end-to-end with a key derived from your password. Wro
 | Error message                               | Cause                                                     |
 | ------------------------------------------- | --------------------------------------------------------- |
 | Incorrect password, or corrupted near start | Wrong password, or the first chunk has been tampered with |
-| This file is not a Colota backup            | Magic bytes don't match - file is something else          |
-| Made with a newer version of Colota         | Schema is ahead of the installed app                      |
+| This file is not a Hutts Tracking backup            | Magic bytes don't match - file is something else          |
+| Made with a newer version of Hutts Tracking         | Schema is ahead of the installed app                      |
 | Backup file is corrupted / incomplete       | Mid-file tamper or truncation                             |
 | Backup file is missing required data        | Container is missing the database or manifest entry       |
 | Credentials could not be applied            | Database restored, but credential write failed            |

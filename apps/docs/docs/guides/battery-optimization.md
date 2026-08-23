@@ -21,12 +21,12 @@ Settings and tips to reduce battery usage without losing GPS fixes.
 3. **Use batch sync** instead of instant - Reduces network usage and wake-ups
 4. **Create geofences** for home/work - Stops recording locations in known zones. Enable **Pause when on WiFi** to also stop GPS entirely when connected to your home network, or **Pause when motionless** to stop GPS after sitting still for a set time
 5. **Enable movement threshold** - 10-50m, skip stationary updates
-6. **Disable battery optimization** for Colota in Android settings to prevent the OS from killing the service
+6. **Disable battery optimization** for Hutts Tracking in Android settings to prevent the OS from killing the service
 
 ## Android Battery Settings
 
 For reliable background tracking, configure Android to not restrict Colota:
 
-1. Go to **Android Settings > Apps > Colota > Battery**
+1. Go to **Android Settings > Apps > Hutts Tracking > Battery**
 2. Select **Unrestricted**
 3. This prevents Android from killing the foreground service

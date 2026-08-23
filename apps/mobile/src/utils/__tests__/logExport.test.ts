@@ -52,10 +52,10 @@ describe("getMergedLogs", () => {
 
   it("merges native logcat entries with level extraction", async () => {
     mockGetNativeLogs.mockResolvedValue([
-      "03-31 10:00:02.000  1234  5678 D Colota.Service: Location received",
-      "03-31 10:00:03.000  1234  5678 E Colota.Sync: Network error",
-      "03-31 10:00:04.000  1234  5678 W Colota.Boot: Slow start",
-      "03-31 10:00:05.000  1234  5678 I Colota.Profile: Switched"
+      "03-31 10:00:02.000  1234  5678 D Hutts Tracking.Service: Location received",
+      "03-31 10:00:03.000  1234  5678 E Hutts Tracking.Sync: Network error",
+      "03-31 10:00:04.000  1234  5678 W Hutts Tracking.Boot: Slow start",
+      "03-31 10:00:05.000  1234  5678 I Hutts Tracking.Profile: Switched"
     ])
 
     const result = await getMergedLogs()
@@ -94,8 +94,8 @@ describe("getMergedLogs", () => {
       { timestamp: `${year}-03-31T12:00:00.000Z`, level: "INFO", message: "js middle" }
     ])
     mockGetNativeLogs.mockResolvedValue([
-      "03-31 06:00:00.000  1234  5678 D Colota.Service: native first",
-      "03-31 23:00:00.000  1234  5678 I Colota.Service: native last"
+      "03-31 06:00:00.000  1234  5678 D Hutts Tracking.Service: native first",
+      "03-31 23:00:00.000  1234  5678 I Hutts Tracking.Service: native last"
     ])
 
     const result = await getMergedLogs()
@@ -138,11 +138,11 @@ describe("getMergedLogs", () => {
   })
 
   it("formats raw line correctly for native entries", async () => {
-    mockGetNativeLogs.mockResolvedValue(["03-31 10:00:00.000  1234  5678 D Colota.Tag: msg"])
+    mockGetNativeLogs.mockResolvedValue(["03-31 10:00:00.000  1234  5678 D Hutts Tracking.Tag: msg"])
 
     const result = await getMergedLogs()
 
-    expect(result[0].raw).toBe("[NATIVE] 03-31 10:00:00.000  1234  5678 D Colota.Tag: msg")
+    expect(result[0].raw).toBe("[NATIVE] 03-31 10:00:00.000  1234  5678 D Hutts Tracking.Tag: msg")
   })
 })
 
@@ -155,13 +155,13 @@ describe("exportLogs", () => {
 
     expect(mockWriteFile).toHaveBeenCalledTimes(1)
     const [fileName, content] = mockWriteFile.mock.calls[0]
-    expect(fileName).toMatch(/^colota_logs_\d+\.txt$/)
-    expect(content).toContain("=== Colota Debug Log Export ===")
+    expect(fileName).toMatch(/^huttstracking_logs_\d+\.txt$/)
+    expect(content).toContain("=== Hutts Tracking Debug Log Export ===")
     expect(content).toContain("Version: 1.5.1 (31)")
     expect(content).toContain("OS: Android 14 (API 34)")
     expect(content).toContain("Device: Google Pixel 7")
 
-    expect(mockShareFile).toHaveBeenCalledWith("/tmp/logs.txt", "text/plain", "Colota Debug Logs")
+    expect(mockShareFile).toHaveBeenCalledWith("/tmp/logs.txt", "text/plain", "Hutts Tracking Debug Logs")
   })
 
   it("works without build config and device info", async () => {
@@ -169,7 +169,7 @@ describe("exportLogs", () => {
 
     expect(mockWriteFile).toHaveBeenCalledTimes(1)
     const content = mockWriteFile.mock.calls[0][1]
-    expect(content).toContain("=== Colota Debug Log Export ===")
+    expect(content).toContain("=== Hutts Tracking Debug Log Export ===")
     expect(content).not.toContain("App Info")
     expect(content).not.toContain("Device Info")
   })

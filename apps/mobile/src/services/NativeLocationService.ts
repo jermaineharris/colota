@@ -762,7 +762,7 @@ class NativeLocationService {
   /**
    * Copies text to the system clipboard
    */
-  static async copyToClipboard(text: string, label: string = "Colota"): Promise<void> {
+  static async copyToClipboard(text: string, label: string = "Hutts Tracking"): Promise<void> {
     this.ensureModule()
     await LocationServiceModule.copyToClipboard(text, label)
   }

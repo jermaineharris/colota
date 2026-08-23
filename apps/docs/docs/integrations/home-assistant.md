@@ -10,7 +10,7 @@ Colota has a dedicated Home Assistant integration that receives location updates
 
 ## Setup
 
-### 1. Install the Colota integration
+### 1. Install the Hutts Tracking integration
 
 **Via HACS (recommended):**
 
@@ -18,7 +18,7 @@ Colota has a dedicated Home Assistant integration that receives location updates
 2. Go to **Integrations**
 3. Click the three dots menu and select **Custom repositories**
 4. Add `https://github.com/dietrichmax/colota-home-assistant` as an **Integration**
-5. Search for **Colota** and install it
+5. Search for **Hutts Tracking** and install it
 6. Restart Home Assistant
 
 **Manual:**
@@ -29,10 +29,10 @@ Colota has a dedicated Home Assistant integration that receives location updates
 ### 2. Add the integration
 
 1. Go to **Settings > Devices & Services > Add Integration**
-2. Search for **Colota** and add it
+2. Search for **Hutts Tracking** and add it
 3. Copy the webhook URL shown after setup
 
-### 3. Configure the Colota app
+### 3. Configure the Hutts Tracking app
 
 1. Go to **Settings > API Settings**
 2. Paste the webhook URL as the endpoint
@@ -73,7 +73,7 @@ The `tid` field is used as the device identifier in Home Assistant. You can cust
 If you prefer not to install a custom integration, you can use Home Assistant's built-in [OwnTracks integration](https://www.home-assistant.io/integrations/owntracks/) instead:
 
 1. Add the **OwnTracks** integration in Home Assistant and note the webhook URL
-2. In the Colota app, select the **OwnTracks** template and set the endpoint to the webhook URL
+2. In the Hutts Tracking app, select the **OwnTracks** template and set the endpoint to the webhook URL
 3. Add the following custom headers:
 
    | Header      | Value        | Description                                    |

@@ -240,9 +240,9 @@ export function SettingsScreen({ navigation }: Props) {
             <ListItem
               testID="nav-about"
               icon={Info}
-              label="About Colota"
+              label="About Hutts Tracking"
               sub="Version, licenses and links"
-              onPress={() => navigation.navigate("About Colota")}
+              onPress={() => navigation.navigate("About Hutts Tracking")}
             />
             <Divider />
             <ListItem

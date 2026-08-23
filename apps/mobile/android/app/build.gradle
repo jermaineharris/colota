@@ -89,9 +89,9 @@ android {
         includeInBundle = false
     }
 
-    namespace "com.Colota"
+    namespace "com.huttsmedia.huttstracking"
     defaultConfig {
-        applicationId "com.Colota"
+        applicationId "com.huttsmedia.huttstracking"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 45
@@ -133,11 +133,13 @@ android {
                 keyAlias MYAPP_UPLOAD_KEY_ALIAS
                 keyPassword MYAPP_UPLOAD_KEY_PASSWORD
             } else {
-                // Fallback: No signing config available
-                // This will cause release builds to fail, which is expected
-                println "⚠️ WARNING: No release signing configuration found!"
-                println "   For local builds: Set up gradle.properties"
-                println "   For CI builds: Set GitHub Secrets"
+                // Local/dev fallback: sign with the debug keystore so we can
+                // install a standalone (JS-bundled) APK without Play credentials.
+                println "WARNING: No release keystore configured; using debug signing"
+                storeFile file('debug.keystore')
+                storePassword 'android'
+                keyAlias 'androiddebugkey'
+                keyPassword 'android'
             }
         }
     }

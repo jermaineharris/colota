@@ -91,7 +91,7 @@ export function segmentTrips(
 }
 
 export const SPLIT_BLOCKED_NOT_A_TRIP =
-  "This point is not part of a trip. Colota leaves out runs that never travel more than 100 m."
+  "This point is not part of a trip. Hutts Tracking leaves out runs that never travel more than 100 m."
 export const SPLIT_BLOCKED_ALREADY_BOUNDARY = "This point already starts a trip."
 export const SPLIT_BLOCKED_TRIP_TOO_SHORT =
   "This trip is too short to split. Splitting makes two trips, and each one needs at least two points."

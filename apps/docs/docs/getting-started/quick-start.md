@@ -6,10 +6,10 @@ sidebar_position: 2
 
 Minimal setup to start tracking:
 
-1. Install the app ([Google Play](https://play.google.com/store/apps/details?id=com.Colota&hl=en-US), [F-Droid](https://f-droid.org/packages/com.Colota/), [IzzyOnDroid](https://apt.izzysoft.de/packages/com.Colota/) or [APK](https://github.com/dietrichmax/colota/releases))
+1. Install the app ([Google Play](https://play.google.com/store/apps/details?id=com.huttsmedia.huttstracking&hl=en-US), [F-Droid](https://f-droid.org/packages/com.huttsmedia.huttstracking/), [IzzyOnDroid](https://apt.izzysoft.de/packages/com.huttsmedia.huttstracking/) or [APK](https://github.com/dietrichmax/colota/releases))
 2. Grant location permissions - select **Precise location** and **Allow all the time**
 3. Grant notification permission - optional. On Android 13 and later, refusing it hides the tracking status notification
-4. Disable battery optimization for Colota in Android settings (otherwise background tracking won't work reliably)
+4. Disable battery optimization for Hutts Tracking in Android settings (otherwise background tracking won't work reliably)
 5. Press **Start Tracking**
 6. View live coordinates on the dashboard
 
